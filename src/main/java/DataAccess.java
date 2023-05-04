@@ -10,7 +10,7 @@ public class DataAccess {
 
         String connectionString =
                 "jdbc:sqlserver://localhost:1433;" +
-                        "databaseName=JonasLugter;" +
+                        "databaseName=FerrariDB;" +
                         "user=SA;" +
                         "password=Fisk1234;" +
                         "encrypt=true;" +
