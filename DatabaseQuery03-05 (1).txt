@@ -14,7 +14,7 @@ CREATE TABLE [salesman] (
 	[salesman_ID] int IDENTITY(1, 1),
 	[firstname] nVarChar(25),
 	[lastname] nVarChar(25),
-	[reviewCode] int NOT NULL
+	[reviewCode] int
 
 	PRIMARY KEY (salesman_ID)
 	);
