@@ -8,9 +8,9 @@ public class DataAccess {
 
         String connectionString =
                 "jdbc:sqlserver://localhost:1433;" +
-                        "databaseName=7ac845f85e6f;" +
-                        "user=SA;" +
-                        "password=fisk1234;" +
+                        "databaseName=FerrariDB;" +
+                        "user=sa;" +
+                        "password=Fisk1234;" +
                         "encrypt=true;" +
                         "trustServerCertificate=true;";
 
