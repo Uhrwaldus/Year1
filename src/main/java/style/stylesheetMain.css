@@ -1,5 +1,5 @@
 
-/* Baggrundsfarve: #666666*/
+/* Baggrundsfarve: #333333 */
 
 /* Label */
 .label{
@@ -15,8 +15,8 @@
     border-width: 1;
     -fx-border-color: transparent;
     border-color: transparent;
-    -fx-background-color: #37474f;
-    background-color: #37474f;
+    -fx-background-color: #666666;
+    background-color: #666666f;
     -fx-text-fill: #F7F7F7;
     -fx-min-height: 30;
     min-height: 30;
