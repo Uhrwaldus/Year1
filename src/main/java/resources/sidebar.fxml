@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="800.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox focusTraversable="true" prefHeight="540.0" prefWidth="110.0" stylesheets="@../../../style/sidebar.css">
+      <VBox focusTraversable="true" prefHeight="540.0" prefWidth="110.0" stylesheets="@sidebar.css">
          <children>
             <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="105.0" text="Opret tilbud">
                <VBox.margin>
