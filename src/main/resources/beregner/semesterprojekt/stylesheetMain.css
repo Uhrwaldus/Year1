@@ -1,0 +1,408 @@
+
+/* Baggrundsfarve: #666666*/
+
+/* Label */
+.label{
+    -fx-text-fill: #F7F7F7;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0.0, 0.0);
+}
+
+.text{
+    -fx-text-fill: #F7F7F7;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0.0, 0.0);
+}
+
+/* Button */
+.button{
+    -fx-background-radius: 15;
+    -fx-border-insets: 0 0 -1 0;
+    -fx-border-width: 1;
+    border-width: 1;
+    -fx-border-color: transparent;
+    border-color: transparent;
+    -fx-background-color: #666666;
+    background-color: #666666;
+    -fx-text-fill: #F7F7F7;
+    -fx-min-height: 30;
+    min-height: 30;
+    -fx-pref-height: 30;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0.0, 0.0);
+}
+.button:focused{
+    -fx-border-radius: 15;
+    -fx-border-color: #F7F7F7;
+    border-color: #F7F7F7;
+    -fx-background-color: #26353a;
+    background-color: #26353a;
+}
+.button:hover{
+    -fx-border-radius: 15;
+    -fx-border-color: #F7F7F7;
+    border-color: #F7F7F7;
+    -fx-background-color: #8AA8AE;
+    background-color: #8AA8AE;
+    -fx-cursor: HAND;
+    cursor: HAND;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0);
+ }
+.button:pressed{
+    -fx-border-radius: 15;
+    -fx-border-color: #F7F7F7;
+    border-color: #F7F7F7;
+    -fx-background-color: #26353a;
+    background-color: #26353a;
+    -fx-cursor: HAND;
+    cursor: HAND;
+}
+
+/* TextField */
+.text-field{
+    -fx-background-radius: 2;
+    -fx-border-width: 1;
+    border-width: 1;
+    -fx-border-color: transparent;
+    border-color: transparent;
+    -fx-background-color: #F7F7F7;
+    background-color: #F7F7F7;
+    -fx-text-fill: #333333;
+    -fx-highlight-fill: #4e4e4e;
+    -fx-min-height: 30;
+    min-height: 30;
+    -fx-pref-height: 30;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0.0, 0.0);
+}
+.text-field:hover{
+    -fx-border-radius: 2;
+    -fx-border-color: #8AA8AE;
+    border-color: #8AA8AE;
+    -fx-background-color: #F7F7F7;
+    background-color: #F7F7F7;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0);
+}
+.text-field:focused{
+    -fx-border-radius: 2;
+    -fx-border-color: #F7F7F7;
+    border-color: #F7F7F7;
+    -fx-background-color: #F7F7F7;
+    background-color: #F7F7F7;
+}
+
+/* Tab */
+
+.tab-pane{
+    -fx-background-color: #333333;
+    background-color: #333333;
+    -fx-border-width: 1;
+    border-width: 1;
+    -fx-border-color: transparent;
+    border-color: transparent;
+    -fx-background-insets: 25.5 0 0 0;
+}
+.tab{
+    -fx-background-radius: 6;
+    -fx-border-width: 0;
+    border-width: 0;
+    -fx-background-color: #333333;
+    background-color: #333333;
+    -fx-text-fill: #F7F7F7;
+    -fx-min-height: 35;
+    min-height: 35;
+    -fx-pref-height: 35;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 2, 0.6, 0.0, 0.0);
+}
+.tab:selected{
+    -fx-background-color: #37474f;
+    background-color: #37474f;
+}
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: #333333;
+    border-color: #333333;
+}
+.tab .tab-close-button {
+    -fx-shape: "M19,6.41L17.59,5 12,10.59 6.41,5 5,6.41 10.59,12 5,17.59 6.41,19 12,13.41 17.59,19 19,17.59 13.41,12z";
+    -fx-background-color: #333333;
+    background-color: #333333;
+    -fx-background-insets: 2;
+    -fx-margin: 0 0 -5 2;
+    margin: 0 0 -5 2;
+    -fx-cursor: HAND;
+    cursor: HAND;
+}
+.tab .tab-label {
+    -fx-text-fill: #F7F7F7;
+}
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #2D2D2D;
+    background-color: #2D2D2D;
+}
+
+/*
+dark to light
+base    (lyseblå) #8AA8AE
+first   (lysegrå) #616161
+second (mørkeblå) #37474f
+
+third (mørkereblå) #26353a
+
+dark - light
+light (hvid) #F7F7F7
+dark  (sort) #333333
+*/
+
+
+
+/* ListCell */
+.list-cell:odd{
+    -fx-background-color: #37474f;
+}
+
+.list-cell:even{
+    -fx-background-color: #26353a;
+}
+
+.list-cell{
+    -fx-background-radius: 0;
+    -fx-border-width: 1;
+    border-width: 1;
+    -fx-text-fill: #F7F7F7;
+    -fx-min-height: 25;
+    min-height: 25;
+    -fx-pref-height: 25;
+    -fx-padding: 0 0 0 3;
+    padding: 0 0 0 3;
+}
+
+.list-cell:pressed{
+    -fx-background-color: #8AA8AE;
+    background-color: #8AA8AE;
+}
+
+.list-view .list-cell:selected{
+    -fx-background-color: #8AA8AE;
+    background-color: #8AA8AE;
+}
+
+/* ListView */
+.list-view{
+    -fx-background-radius: 0;
+    -fx-background-color: #37474f;
+    background-color: #37474f;
+    -fx-border-width: 1;
+    border-width: 1;
+    -fx-padding: 1;
+    padding: 1;
+}
+.list-view .scroll-bar{
+    -fx-background-insets: 0 -1 0 0;
+}
+.list-view .scroll-bar .thumb{
+    -fx-background-insets: 0 3 0 2;
+}
+.list-view:hover{
+    -fx-border-color: #3E3E40;
+    border-color: #3E3E40;
+    -fx-padding: 0;
+    padding: 0;
+    -fx-background-insets: 1 1 0 1;
+}
+.list-view:focused{
+    -fx-background-color: #37474f;
+    background-color: #37474f;
+    -fx-border-color: #26353a;
+    border-color: #26353a;
+    -fx-padding: 0 0 1 0;
+    padding: 0 0 1 0;
+    -fx-background-insets: 1;
+}
+
+/* TableView */
+.table-view{
+    -fx-border-width: 1;
+    border-width: 1;
+    -fx-border-radius: 0;
+    border-radius: 0;
+    -fx-border-color: #26353a;
+    border-color: #26353a;
+    -fx-background-radius: 0;
+    -fx-background-color: #37474f;
+    background-color: #37474f;
+    -fx-table-cell-border-color: #26353a;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0.0, 0.0);
+}
+.table-view:focused{
+    -fx-border-width: 1;
+    border-width: 1;
+    -fx-border-radius: 0;
+    border-radius: 0;
+    -fx-border-color: #26353a;
+    border-color: #26353a;
+    -fx-background-insets: 1;
+    -fx-background-radius: 0;
+    -fx-background-color: #26353a;
+    background-color: #26353a;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0);
+}
+.table-view .column-header-background{
+    -fx-border-width: 0 0 1 0;
+    border-width: 0 0 1 0;
+    -fx-border-color: #26353a;
+    border-color: #26353a;
+    -fx-background-radius: 0;
+    -fx-background-color: #26353a;
+    background-color: #26353a;
+    -fx-text-fill: #F7F7F7;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-border-color: transparent;
+    border-color: transparent;
+}
+.table-view .column-resize-line {
+    -fx-background-color: #26353a;
+    background-color: #26353a;
+    -fx-pref-width: 1;
+}
+.table-row-cell{
+    -fx-background-color: #37474f;
+    background-color: #37474f;
+    -fx-text-background-color: #F7F7F7;
+    -fx-margin: 1;
+    margin: 1;
+}
+.table-row-cell:hover {
+    -fx-background-color: #26353a;
+    background-color: #26353a;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+.table-row-cell:selected {
+    -fx-table-cell-border-color: #26353a;
+    -fx-background-color: #26353a;
+    background-color: #26353a;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+.table-row-cell:pressed {
+    -fx-background-color: #8AA8AE;
+    background-color: #8AA8AE;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+.table-view .column-header .label {
+    -fx-alignment: center-left;
+    -fx-cursor: HAND;
+    cursor: HAND;
+}
+.table-view .filler {
+    -fx-background-color: transparent;
+    background-color: transparent;
+}
+.table-view .column-drag-header{
+    -fx-background-color: #8AA8AE;
+    background-color: #8AA8AE   ;
+}
+
+.table-view .arrow {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-shape: " ";
+}
+
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: #26353a;
+	-fx-background-insets: 1, 1, 1, 1;
+	-fx-background-radius: 15;
+}
+
+.table-view .scroll-bar:horizontal .track,
+.table-view .scroll-bar:vertical .track{
+	-fx-background-color: transparent;
+	-fx-border-color: transparent;
+	-fx-background-radius: 0;
+	-fx-border-radius: 0;
+}
+
+.table-view .increment-button ,.table-view .decrement-button {
+    -fx-background-color: transparent;
+	-fx-background-radius: 0;
+}
+
+/* ComboBox */
+.combo-box{
+    -fx-background-radius: 0;
+    -fx-border-insets: 0 0 -1 0;
+    -fx-border-width: 1;
+    border-width: 1;
+    -fx-border-color: #37474f;
+    border-color: #37474f;
+    -fx-background-color: #26353a;
+    background-color: #26353a;
+    -fx-min-height: 25;
+    min-height: 25;
+    -fx-pref-height: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0.0, 0.0);
+}
+.combo-box .list-cell:selected{
+    -fx-background-color: #26353a;
+    background-color: #26353a;
+}
+.combo-box .list-cell:hover{
+    -fx-background-color:  #8AA8AE;
+    background-color:  #8AA8AE;
+}
+.combo-box:hover{
+    -fx-border-color: #37474f;
+    border-color: #37474f;
+    -fx-background-color: #8AA8AE;
+    background-color: #8AA8AE;
+    -fx-cursor: HAND;
+    cursor: HAND;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0);
+}
+.combo-box:focused{
+    -fx-border-color: #37474f;
+    border-color: #37474f;
+    -fx-background-color: #37474f;
+    background-color: #37474f;
+}
+.combo-box-base > .arrow-button {
+    -fx-padding: 0 6;
+    padding: 0 6;
+}
+.combo-box-base > .arrow-button > .arrow {
+    -fx-background-color: #F7F7F7;
+    background-color: #F7F7F7;
+    -fx-background-insets: 0;
+    -fx-padding: 2 4;
+    padding: 2 4;
+    -fx-shape: "M 0 0 H 7 L 3.5 4 z";
+}
+.combo-box .list-view{
+    -fx-background-radius: 0;
+    -fx-background-color: #26353a;
+    background-color: #26353a;
+    -fx-border-width: 0;
+    border-width: 0;
+    -fx-padding: 1;
+    padding: 1;
+}
+
+.text-area .content{
+    -fx-background-color: #F7F7F7;
+    -fx-highlight-fill: black;
+
+}
+
+.text-area {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0.0, 0.0);
+}
+
+.text-area:focused {
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-text-box-border, -10%), -fx-text-box-border),
+        linear-gradient(from 0px 0px to 0px 5px, derive(-fx-control-inner-background, -9%), -fx-control-inner-background);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0);
+}
+
+
