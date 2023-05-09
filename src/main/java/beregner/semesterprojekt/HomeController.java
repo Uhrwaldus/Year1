@@ -1,19 +1,40 @@
 package beregner.semesterprojekt;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import com.ferrari.finances.dk.bank.InterestRate;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
 
 public class HomeController {
-    int udbetaling, indkomst, bil, pris, periode;
+    double udbetaling, indkomst, pris, udregning;
+    String bil;
+    double måneder;
 
     @FXML
-    private TextField udbetalinginput;
+    private TextField udbetalingInput, indkomstInput, bilInput, prisInput;
+    @FXML
+    private Slider periode;
+    @FXML
+    private Label resultat;
 
-    public void check(ActionEvent event ){
-        udbetaling = Integer.parseInt(udbetalinginput.getText());
-        System.out.println(udbetaling);
+    public void check(javafx.event.ActionEvent actionEvent) {
+        //læser værdierne fra textfelterne
+        udbetaling = Double.parseDouble(udbetalingInput.getText());
+        indkomst = Double.parseDouble(indkomstInput.getText());
+        pris = Double.parseDouble(prisInput.getText());
+        måneder = periode.getValue();
+
+        udregning = (pris - udbetaling) / måneder * (InterestRate.i().todaysRate() / 100 + 1);
+        resultat.setText(String.format("%.2f", udregning));
+
+        System.out.println( InterestRate.i().todaysRate());
     }
 
+    public void getPris(ActionEvent Event){
+        //hent prisen ud fra hvilken bil man vælger i DB
+
+    }
 }
