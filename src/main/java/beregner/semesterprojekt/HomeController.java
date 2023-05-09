@@ -2,6 +2,7 @@ package beregner.semesterprojekt;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
@@ -12,13 +13,16 @@ public class HomeController {
     double udbetaling, indkomst, pris, udregning;
     String bil;
     double måneder;
+    private HomeModel db;
 
     @FXML
-    private TextField udbetalingInput, indkomstInput, bilInput, prisInput;
+    private TextField udbetalingInput, indkomstInput, prisInput;
     @FXML
     private Slider periode;
     @FXML
     private Label resultat;
+    @FXML
+    private ChoiceBox bilInput;
 
     public void check(javafx.event.ActionEvent actionEvent) {
         //læser værdierne fra textfelterne
@@ -31,6 +35,8 @@ public class HomeController {
         resultat.setText(String.format("%.2f", udregning));
 
         System.out.println( InterestRate.i().todaysRate());
+
+        this.db = new HomeModel();
     }
 
     public void getPris(ActionEvent Event){
