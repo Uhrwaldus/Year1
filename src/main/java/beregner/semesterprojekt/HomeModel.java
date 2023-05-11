@@ -1,10 +1,13 @@
 package beregner.semesterprojekt;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ChoiceBox;
 
 public class HomeModel {
+    private Connection connection;
     public boolean Connect() throws SQLException {
 
         String connectionString =
@@ -15,7 +18,7 @@ public class HomeModel {
                         "encrypt=true;" +
                         "trustServerCertificate=true;";
 
-        Connection connection = null;
+        connection = null;
 
         try {
             System.out.println("Connecting to database...");
@@ -31,6 +34,22 @@ public class HomeModel {
             System.out.println(e.getMessage());
 
             return false;
+        }
+    }
+
+    public void getBiler(ChoiceBox choiceBox) throws SQLException {
+        ObservableList<String> names = FXCollections.observableArrayList();
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT car_name FROM car");
+            while (rs.next()) {
+                String name = rs.getString("car_name");
+                names.add(name);
+            }
+            choiceBox.setItems(names);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

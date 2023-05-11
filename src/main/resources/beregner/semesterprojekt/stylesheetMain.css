@@ -1,56 +1,65 @@
 
-/* Baggrundsfarve: #666666*/
+/* Baggrundsfarve: #121212*/
+
 
 /* Label */
 .label{
-    -fx-text-fill: #F7F7F7;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0.0, 0.0);
+    -fx-font-family: Arial;
+    -fx-text-fill: #B9B9B9;
+    -fx-effect: null;
 }
 
 .text{
-    -fx-text-fill: #F7F7F7;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0.0, 0.0);
+    -fx-text-fill: #B9B9B9;
+    -fx-effect: null;
+}
+
+#header{
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
 }
 
 /* Button */
 .button{
-    -fx-background-radius: 15;
+    -fx-background-radius: 10;
     -fx-border-insets: 0 0 -1 0;
     -fx-border-width: 1;
     border-width: 1;
     -fx-border-color: transparent;
     border-color: transparent;
-    -fx-background-color: #666666;
-    background-color: #666666;
-    -fx-text-fill: #F7F7F7;
+    -fx-background-color: #515151;
+    background-color: #515151;
+    -fx-font-family: Aller;
+    -fx-font-weight: bold;
+    -fx-text-fill: #B9B9B9;
     -fx-min-height: 30;
     min-height: 30;
     -fx-pref-height: 30;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0.0, 0.0);
+    -fx-effect: null;
 }
 .button:focused{
-    -fx-border-radius: 15;
-    -fx-border-color: #F7F7F7;
-    border-color: #F7F7F7;
-    -fx-background-color: #26353a;
-    background-color: #26353a;
+    -fx-border-radius: 5;
+    -fx-border-color: #B9B9B9;
+    border-color: #B9B9B9;
+    -fx-background-color: #121212;
+    background-color: #121212;
 }
 .button:hover{
-    -fx-border-radius: 15;
+    -fx-border-radius: 5;
     -fx-border-color: #F7F7F7;
     border-color: #F7F7F7;
-    -fx-background-color: #8AA8AE;
-    background-color: #8AA8AE;
+    -fx-background-color: #666666;
+    background-color: #666666;
     -fx-cursor: HAND;
     cursor: HAND;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0);
+    -fx-effect: null;
  }
 .button:pressed{
-    -fx-border-radius: 15;
+    -fx-border-radius: 5;
     -fx-border-color: #F7F7F7;
     border-color: #F7F7F7;
-    -fx-background-color: #26353a;
-    background-color: #26353a;
+    -fx-background-color: #2D2D2D;
+    background-color: #2D2D2D;
     -fx-cursor: HAND;
     cursor: HAND;
 }
@@ -62,8 +71,8 @@
     border-width: 1;
     -fx-border-color: transparent;
     border-color: transparent;
-    -fx-background-color: #F7F7F7;
-    background-color: #F7F7F7;
+    -fx-background-color: #F0F0F0;
+    background-color: #F0F0F0;
     -fx-text-fill: #333333;
     -fx-highlight-fill: #4e4e4e;
     -fx-min-height: 30;
@@ -87,8 +96,14 @@
     background-color: #F7F7F7;
 }
 
-/* Tab */
+/*special*/
+#center-pane{
+    -fx-background-radius: 3;
+    -fx-background-color: #1D1D1D;
+    background-color: #1D1D1D;
+}
 
+/* Tab */
 .tab-pane{
     -fx-background-color: #333333;
     background-color: #333333;
@@ -135,21 +150,11 @@
     -fx-background-color: #2D2D2D;
     background-color: #2D2D2D;
 }
-
-/*
-dark to light
-base    (lyseblå) #8AA8AE
-first   (lysegrå) #616161
-second (mørkeblå) #37474f
-
-third (mørkereblå) #26353a
-
-dark - light
-light (hvid) #F7F7F7
-dark  (sort) #333333
-*/
-
-
+/* slider*/
+.slider.track{
+   -fx-background-color: #121212;
+       background-color: #121212;
+}
 
 /* ListCell */
 .list-cell:odd{
