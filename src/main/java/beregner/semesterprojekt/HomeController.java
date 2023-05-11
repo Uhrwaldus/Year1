@@ -16,7 +16,6 @@ import java.util.ResourceBundle;
 public class HomeController implements Initializable {
     private HomeModel database;
     double udbetaling, indkomst, pris, udregning;
-    String bil;
     double måneder;
 
     @FXML
