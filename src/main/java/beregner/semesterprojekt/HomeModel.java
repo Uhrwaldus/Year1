@@ -6,8 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
 
-import javax.swing.plaf.nimbus.State;
-
 public class HomeModel {
     private static Connection connection;
     public boolean Connect() throws SQLException {

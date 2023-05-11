@@ -46,8 +46,16 @@ public class HomeController implements Initializable {
             throw new RuntimeException(e);
         }
 
+        // henter prisen tilhørende bilen fra choicebox
+        bilInput.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+            try {
+                double price = HomeModel.getPrice((String) newValue);
+                prisInput.setText(String.format("%.2f", price));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
-
 
 
     public void check(javafx.event.ActionEvent actionEvent) {
