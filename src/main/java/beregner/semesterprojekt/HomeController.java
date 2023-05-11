@@ -13,7 +13,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class HomeController implements Initializable {
+public class HomeController  {
     private HomeModel database;
     double udbetaling, indkomst, pris, udregning;
     String bil;
@@ -28,20 +28,6 @@ public class HomeController implements Initializable {
     @FXML
     private ChoiceBox bilInput;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            database.Connect();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        try {
-            database.getBiler(bilInput);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     public void check(javafx.event.ActionEvent actionEvent) {
         //læser værdierne fra textfelterne
