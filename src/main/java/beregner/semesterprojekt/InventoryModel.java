@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
 
 public class InventoryModel {
+    //Opretter Connection til Databasen med nedenstående metode.
     private Connection connection;
     public boolean Connect() throws SQLException {
 
@@ -39,4 +40,7 @@ public class InventoryModel {
     }
 
 
+    public Connection getConnection() {
+        return connection;
+    }
 }

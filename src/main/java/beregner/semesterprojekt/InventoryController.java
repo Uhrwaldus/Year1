@@ -8,14 +8,17 @@ import javafx.scene.input.MouseEvent;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 
 public class InventoryController implements Initializable {
     private InventoryModel database;
 
-    @Override
+    @Override //Bruger databasen fra Model Laget.
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         InventoryModel database = new InventoryModel();
@@ -26,29 +29,51 @@ public class InventoryController implements Initializable {
         }
         this.database = database;
     }
-    int Stock;
-    double pris;
-    String model;
-
-
 
 
     @FXML
     private Label modelOutput, prisOutput, stockOutput;
 
-    @FXML
-    private void F40(MouseEvent event) {
-        stockOutput.setText("1");
-        modelOutput.setText("F40");
-        prisOutput.setText("3.000.000.000");
-    }
-    @FXML
-    private void Spider(MouseEvent event) {
-        stockOutput.setText("2");
-        modelOutput.setText("Spider");
-        prisOutput.setText("3.500.000.000");
-    }
+    private Connection conn; // initialize your database connection
 
+    public void F40(MouseEvent event){
+        String query = "SELECT * FROM car WHERE car_name = 'Ferrari F40'";
+        try {
+            conn = database.getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                String model = rs.getString("car_name");
+                int pris = rs.getInt("car_price");
+                int stock = rs.getInt("stock");
+
+                modelOutput.setText(model);
+                prisOutput.setText(Integer.toString(pris));
+                stockOutput.setText(Integer.toString(stock));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void Spider(MouseEvent event){
+        String query = "SELECT * FROM car WHERE car_name = 'Ferrari Spyder'";
+        try {
+            conn = database.getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                String model = rs.getString("car_name");
+                int pris = rs.getInt("car_price");
+                int stock = rs.getInt("stock");
+
+                modelOutput.setText(model);
+                prisOutput.setText(Integer.toString(pris));
+                stockOutput.setText(Integer.toString(stock));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
