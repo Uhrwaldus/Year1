@@ -50,13 +50,12 @@ public class HomeController implements Initializable {
         bilInput.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
                 double price = HomeModel.getPrice((String) newValue);
-                prisInput.setText(String.format("%.2f", price));
+                prisInput.setText(String.valueOf(price));
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         });
     }
-
 
     public void check(javafx.event.ActionEvent actionEvent) {
         //læser værdierne fra textfelterne og laver udregning

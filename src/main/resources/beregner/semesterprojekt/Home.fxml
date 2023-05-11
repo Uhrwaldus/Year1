@@ -17,6 +17,7 @@
             <children>
                 <Button fx:id="tjek" layoutX="137.0" layoutY="344.0" mnemonicParsing="false" onAction="#check" prefHeight="44.0" prefWidth="75.0" text="Tjek" />
                 <Label id="header" layoutX="26.0" layoutY="403.0" text="Månedlig afbetaling:" />
+            <Label id="header" fx:id="resultat" layoutX="184.0" layoutY="404.0" />
             </children>
         </Pane>
         <VBox focusTraversable="true" prefHeight="540.0" prefWidth="120.0" style="-fx-background-color: #1d1d1d;" stylesheets="@sidebar.css">
@@ -99,7 +100,6 @@
         </Pane>
         <Slider fx:id="periode" blockIncrement="12.0" layoutX="302.0" layoutY="327.0" majorTickUnit="12.0" max="96.0" min="12.0" minorTickCount="0" prefHeight="24.0" prefWidth="242.0" showTickMarks="true" snapToTicks="true" />
         <Label layoutX="394.0" layoutY="354.0" text="Måneder" />
-        <Label id="header" fx:id="resultat" layoutX="439.0" layoutY="449.0" prefHeight="17.0" prefWidth="0.0" />
         <ChoiceBox fx:id="bilInput" layoutX="292.0" layoutY="235.0" prefWidth="150.0" />
     </children>
 </AnchorPane>
