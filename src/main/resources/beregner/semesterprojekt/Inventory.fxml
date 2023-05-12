@@ -65,7 +65,7 @@
             </opaqueInsets>
         </VBox>
         <Label id="header" fx:id="resultat" layoutX="439.0" layoutY="449.0" prefHeight="17.0" prefWidth="0.0" />
-      <ImageView fitHeight="60.0" fitWidth="105.0" layoutX="120.0" layoutY="492.0" onMouseClicked="#F40" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="F40" fitHeight="60.0" fitWidth="105.0" layoutX="120.0" layoutY="492.0" onMouseClicked="#F40" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Billeder/FERRARI%20f40.png" />
          </image>
@@ -83,5 +83,20 @@
       <Label fx:id="stockOutput" layoutX="120.0" layoutY="232.0" prefHeight="30.0" prefWidth="200.0" textFill="WHITE" />
       <Label fx:id="prisOutput" layoutX="120.0" layoutY="166.0" prefHeight="30.0" prefWidth="200.0" textFill="WHITE" />
       <Label fx:id="modelOutput" layoutX="120.0" layoutY="93.0" prefHeight="30.0" prefWidth="200.0" textFill="WHITE" />
+      <ImageView fx:id="Stradale" fitHeight="48.0" fitWidth="120.0" layoutX="347.0" layoutY="491.0" onMouseClicked="#Stradale" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Billeder/Ferrari%20Stradale.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Roma" fitHeight="48.0" fitWidth="120.0" layoutX="465.0" layoutY="492.0" onMouseClicked="#Roma" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Billeder/Ferrrai%20Roma.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Portofino" fitHeight="48.0" fitWidth="120.0" layoutX="585.0" layoutY="491.0" onMouseClicked="#Portofino" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Billeder/Ferrari%20Portofino.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

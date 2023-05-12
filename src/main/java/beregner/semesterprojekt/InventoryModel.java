@@ -40,7 +40,10 @@ public class InventoryModel {
     }
 
 
+
     public Connection getConnection() {
         return connection;
     }
+
+
 }
