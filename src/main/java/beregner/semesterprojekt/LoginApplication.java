@@ -4,24 +4,24 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
-public class HomeApplication extends Application {
-    /*
-    public static void main(String[] args) throws SQLException {
-        //connect til database
-        DataAccess db = new DataAccess();
-        db.Connect();
-    }
-    */
+public class LoginApplication extends Application {
+
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("Home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
-        stage.setTitle("Home");
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
+    }
+    public static void main(String[] args) {
+        launch(args);
     }
 }
