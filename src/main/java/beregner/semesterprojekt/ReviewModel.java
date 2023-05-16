@@ -3,6 +3,7 @@ package beregner.semesterprojekt;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 public class ReviewModel {
-    private Connection connection;
+    private static Connection connection;
     public boolean Connect() throws SQLException {
 
         String connectionString =
@@ -58,5 +59,21 @@ public class ReviewModel {
             throw new RuntimeException(e);
         }
 
+    }
+    public static void getInfo(ChoiceBox<Integer> choiceBox, TextField date, TextField interest, TextField price) {
+        int selectedId = choiceBox.getValue();
+        String query = "SELECT field1, field2, field3 FROM mytable WHERE id = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, selectedId);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                date.setText(resultSet.getString("field1"));
+                interest.setText(resultSet.getString("field2"));
+                price.setText(resultSet.getString("field3"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
