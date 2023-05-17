@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane minHeight="540.0" minWidth="800.0" prefHeight="540.0" prefWidth="800.0" style="-fx-background-color: #121212;" stylesheets="@stylesheetMain.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="beregner.semesterprojekt.ReviewController">
    <children>
       <VBox focusTraversable="true" prefHeight="540.0" prefWidth="120.0" style="-fx-background-color: #1d1d1d;" stylesheets="@sidebar.css">
@@ -72,9 +71,9 @@
             <TextField fx:id="date" layoutX="14.0" layoutY="85.0" />
             <TextField fx:id="carName" layoutX="308.0" layoutY="85.0" />
             <TextField fx:id="custName" layoutX="14.0" layoutY="152.0" />
-            <TextField fx:id="price" layoutX="308.0" layoutY="152.0" />
+            <TextField fx:id="loan_total" layoutX="308.0" layoutY="152.0" />
             <TextField fx:id="phone" layoutX="14.0" layoutY="218.0" />
-            <TextField fx:id="downPay" layoutX="308.0" layoutY="218.0" />
+            <TextField fx:id="deposit" layoutX="308.0" layoutY="218.0" />
             <Label layoutX="15.0" layoutY="61.0" prefHeight="15.0" prefWidth="151.0" text="Dato" />
             <Label layoutX="15.0" layoutY="130.0" prefHeight="15.0" prefWidth="151.0" text="Kundenavn" />
             <Label layoutX="15.0" layoutY="196.0" prefHeight="15.0" prefWidth="151.0" text="Telefonnummer" />

@@ -11,7 +11,10 @@ import java.util.Date;
 import java.util.List;
 
 public class ReviewModel {
+    private ReviewModel database;
     private static Connection connection;
+
+
     public boolean Connect() throws SQLException {
 
         String connectionString =
@@ -60,7 +63,8 @@ public class ReviewModel {
         }
 
     }
-    public static void getInfo(ChoiceBox<Integer> choiceBox, TextField date, TextField interest, TextField price) {
+    public static void getInfo(ChoiceBox<Integer> choiceBox, TextField date, TextField interest, TextField credit,
+                               TextField loan_total, TextField deposit, TextField duration) {
         int selectedId = choiceBox.getValue();
         String query = "SELECT field1, field2, field3 FROM mytable WHERE id = ?";
         try {
@@ -68,9 +72,13 @@ public class ReviewModel {
             statement.setInt(1, selectedId);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                date.setText(resultSet.getString("field1"));
-                interest.setText(resultSet.getString("field2"));
-                price.setText(resultSet.getString("field3"));
+                date.setText(String.valueOf(resultSet.getDate("date")));
+                interest.setText(String.valueOf(resultSet.getDouble("interest")));
+                credit.setText(resultSet.getString("credit_rating"));
+                loan_total.setText(String.valueOf(resultSet.getInt("loan_total")));
+                deposit.setText(String.valueOf(resultSet.getInt("deposit")));
+                duration.setText(String.valueOf(resultSet.getInt("duration")));
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
