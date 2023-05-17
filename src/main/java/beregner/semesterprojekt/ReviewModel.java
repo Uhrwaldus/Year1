@@ -43,8 +43,7 @@ public class ReviewModel {
             return false;
         }
     }
-
-    public void getOffer(ChoiceBox choiceBox) {
+    public static void getOffer(ChoiceBox choiceBox) {
         ObservableList<Integer> setOffer = FXCollections.observableArrayList();
         try {
             String sql = "SELECT offer_ID FROM offer";
@@ -56,7 +55,7 @@ public class ReviewModel {
                 int offer_ID = rs.getInt("offer_ID");
                 setOffer.add(offer_ID);
             }
-                choiceBox.setItems(setOffer);
+            choiceBox.setItems(setOffer);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -66,7 +65,7 @@ public class ReviewModel {
     public static void getInfo(ChoiceBox<Integer> choiceBox, TextField date, TextField interest, TextField credit,
                                TextField loan_total, TextField deposit, TextField duration) {
         int selectedId = choiceBox.getValue();
-        String query = "SELECT field1, field2, field3 FROM mytable WHERE id = ?";
+        String query = "SELECT date, interest, credit_rating, loan_total, deposit, duration FROM offer WHERE offer_id = ?";
         try {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, selectedId);
