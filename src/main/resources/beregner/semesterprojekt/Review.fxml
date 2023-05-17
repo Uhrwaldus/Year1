@@ -67,29 +67,25 @@
       </VBox>
       <Pane id="center-pane" layoutX="201.0" layoutY="45.0" prefHeight="450.0" prefWidth="500.0">
          <children>
-            <Button fx:id="godkend" layoutX="233.0" layoutY="400.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="75.0" style="-fx-background-color: #013220;" text="Godkend" />
+            <Button fx:id="godkend" layoutX="233.0" layoutY="404.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="75.0" style="-fx-background-color: #013220;" text="Godkend" />
             <TextField fx:id="date" layoutX="14.0" layoutY="85.0" />
             <TextField fx:id="carName" layoutX="308.0" layoutY="85.0" />
+            <TextField fx:id="carPrice" layoutX="308.0" layoutY="152.0" />
             <TextField fx:id="custName" layoutX="14.0" layoutY="152.0" />
-            <TextField fx:id="loan_total" layoutX="308.0" layoutY="152.0" />
-            <TextField fx:id="phone" layoutX="14.0" layoutY="218.0" />
             <TextField fx:id="deposit" layoutX="308.0" layoutY="218.0" />
             <Label layoutX="15.0" layoutY="61.0" prefHeight="15.0" prefWidth="151.0" text="Dato" />
-            <Label layoutX="15.0" layoutY="130.0" prefHeight="15.0" prefWidth="151.0" text="Kundenavn" />
-            <Label layoutX="15.0" layoutY="196.0" prefHeight="15.0" prefWidth="151.0" text="Telefonnummer" />
+            <Label layoutX="15.0" layoutY="193.0" prefHeight="15.0" prefWidth="151.0" text="Telefonnummer" />
             <Label layoutX="308.0" layoutY="60.0" prefHeight="15.0" prefWidth="151.0" text="Bil" />
-            <Label layoutX="308.0" layoutY="130.0" text="Pris" />
+            <Label layoutX="308.0" layoutY="130.0" text="Bil-pris" />
             <Label layoutX="308.0" layoutY="196.0" text="Udbetaling" />
-            <Label layoutX="16.0" layoutY="265.0" text="Rentesats" />
+            <Label layoutX="14.0" layoutY="262.0" text="Rentesats" />
             <Label layoutX="308.0" layoutY="265.0" text="Kreditvurdering" />
-            <Label layoutX="308.0" layoutY="326.0" prefHeight="15.0" prefWidth="151.0" text="Varighed" />
-            <Label layoutX="14.0" layoutY="326.0" text="Sælgernavn" />
-            <TextField fx:id="interest" layoutX="14.0" layoutY="285.0" />
-            <TextField fx:id="salesName" layoutX="14.0" layoutY="350.0" />
+            <Label layoutX="14.0" layoutY="329.0" prefHeight="15.0" prefWidth="151.0" text="Varighed" />
+            <TextField fx:id="interest" layoutX="14.0" layoutY="282.0" />
             <TextField fx:id="credit" layoutX="308.0" layoutY="285.0" />
-            <TextField fx:id="duration" layoutX="308.0" layoutY="348.0" />
-            <Button fx:id="tjek1" layoutX="337.0" layoutY="400.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="75.0" style="-fx-background-color: #880808;" text="Afvis" />
-            <Label layoutX="43.0" layoutY="396.0" prefHeight="32.0" prefWidth="171.0" text="Godkend tilbud?">
+            <TextField fx:id="duration" layoutX="15.0" layoutY="349.0" />
+            <Button fx:id="tjek1" layoutX="337.0" layoutY="404.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="75.0" style="-fx-background-color: #880808;" text="Afvis" />
+            <Label layoutX="43.0" layoutY="400.0" prefHeight="32.0" prefWidth="171.0" text="Godkend tilbud?">
                <font>
                   <Font size="20.0" />
                </font>
@@ -100,6 +96,10 @@
                </font>
             </Label>
             <ChoiceBox fx:id="choiceBox" layoutX="170.0" layoutY="13.0" prefHeight="23.0" prefWidth="126.0" />
+            <TextField fx:id="phone" layoutX="15.0" layoutY="216.0" />
+            <TextField fx:id="loan_total" layoutX="308.0" layoutY="352.0" />
+            <Label layoutX="308.0" layoutY="328.0" text="Lån total" />
+            <Label layoutX="13.0" layoutY="130.0" text="Kundenavn" />
          </children>
       </Pane>
    </children>

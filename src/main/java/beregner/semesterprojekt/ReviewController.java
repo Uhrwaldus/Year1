@@ -15,7 +15,7 @@ public class ReviewController implements Initializable {
     private ReviewModel database;
     private ReviewModel model = new ReviewModel();
     @FXML
-    private TextField date, interest, credit, loan_total, deposit, custName, phone, salesName, carName, duration;
+    private TextField date, interest, credit, loan_total, deposit, phone, carName, duration, carPrice, custName;
     @FXML
     private ChoiceBox choiceBox;
 
@@ -32,7 +32,8 @@ public class ReviewController implements Initializable {
         model.getOffer(choiceBox);
         choiceBox.setOnAction(event -> {
             int selectedID = (int) choiceBox.getValue();
-            ReviewModel.getInfo(choiceBox, date, interest, credit, loan_total, deposit, duration);
+            ReviewModel.getOfferInfo(choiceBox, date, interest, credit, loan_total, deposit,
+                    duration, carName, carPrice, phone, custName);
         });
     }
 }

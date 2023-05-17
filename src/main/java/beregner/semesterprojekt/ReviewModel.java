@@ -62,10 +62,17 @@ public class ReviewModel {
         }
 
     }
-    public static void getInfo(ChoiceBox<Integer> choiceBox, TextField date, TextField interest, TextField credit,
-                               TextField loan_total, TextField deposit, TextField duration) {
+    public static void getOfferInfo(ChoiceBox<Integer> choiceBox, TextField date, TextField interest, TextField credit,
+                               TextField loan_total, TextField deposit, TextField duration,
+                                    TextField carName, TextField carPrice, TextField phone, TextField custName) {
         int selectedId = choiceBox.getValue();
-        String query = "SELECT date, interest, credit_rating, loan_total, deposit, duration FROM offer WHERE offer_id = ?";
+        String query = "SELECT offer.date, offer.interest, offer.credit_rating, offer.loan_total, offer.deposit, " +
+                "offer.duration, CONCAT(customer.firstname, ' ', customer.lastname) AS full_name, customer.phonenumber, car.car_name, " +
+                "car.car_price FROM offer " +
+                "JOIN customer ON offer.customer_ID = customer.customer_ID " +
+                "JOIN car ON offer.car_ID = car.car_ID " +
+                "WHERE offer.offer_id = ?";
+
         try {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, selectedId);
@@ -77,6 +84,10 @@ public class ReviewModel {
                 loan_total.setText(String.valueOf(resultSet.getInt("loan_total")));
                 deposit.setText(String.valueOf(resultSet.getInt("deposit")));
                 duration.setText(String.valueOf(resultSet.getInt("duration")));
+                carName.setText(resultSet.getString("car_name"));
+                carPrice.setText(String.valueOf(resultSet.getInt("car_price")));
+                phone.setText(String.valueOf(resultSet.getInt("phonenumber")));
+                custName.setText(resultSet.getString("full_name"));
 
             }
         } catch (SQLException e) {
