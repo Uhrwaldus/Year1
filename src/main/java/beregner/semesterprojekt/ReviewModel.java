@@ -43,7 +43,9 @@ public class ReviewModel {
             return false;
         }
     }
+    //Henter alle tilbud gennem offer_ID, og sætter dem i choicebox.
     public static void getOffer(ChoiceBox choiceBox) {
+
         ObservableList<Integer> setOffer = FXCollections.observableArrayList();
         try {
             String sql = "SELECT offer_ID FROM offer";
@@ -62,6 +64,7 @@ public class ReviewModel {
         }
 
     }
+    //Henter infomation fra databasen gennem SQL-sætning
     public static void getOfferInfo(ChoiceBox<Integer> choiceBox, TextField date, TextField interest, TextField credit,
                                TextField loan_total, TextField deposit, TextField duration,
                                     TextField carName, TextField carPrice, TextField phone, TextField custName) {
@@ -77,7 +80,7 @@ public class ReviewModel {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, selectedId);
             ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
+            if (resultSet.next()) { //Indsætter data i textfields
                 date.setText(String.valueOf(resultSet.getDate("date")));
                 interest.setText(String.valueOf(resultSet.getDouble("interest")));
                 credit.setText(resultSet.getString("credit_rating"));
