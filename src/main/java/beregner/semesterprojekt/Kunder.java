@@ -1,48 +1,48 @@
 package beregner.semesterprojekt;
 
 public class Kunder {
-    private int column1;
-    private String column2;
-    private String column3;
-    private String column4;
-    private int column5;
-    private String column6;
-    private String column7;
-    private int column8;
+    private int ID;
+    private String Navn;
+    private String Efternavn;
+    private String Email;
+    private int Tlfnr;
+    private String Addresse;
+    private String By;
+    private int Postnr;
 
     public Kunder(int column1, String column2, String column3, String column4, int column5, String column6, String column7, int column8){
-        this.column1 = column1;
-        this.column2 = column2;
-        this.column3 = column3;
-        this.column4 = column4;
-        this.column5 = column5;
-        this.column6 = column6;
-        this.column7 = column7;
-        this.column8 = column8;
+        this.ID = column1;
+        this.Navn = column2;
+        this.Efternavn = column3;
+        this.Email = column4;
+        this.Tlfnr = column5;
+        this.Addresse = column6;
+        this.By = column7;
+        this.Postnr = column8;
     }
 
-    public int getColumn1(){
-        return column1;
+    public int getID(){
+        return ID;
     }
-    public String getColumn2(){
-        return column2;
+    public String getNavn(){
+        return Navn;
     }
-    public String getColumn3(){
-        return column3;
+    public String getEfternavn(){
+        return Efternavn;
     }
-    public String getColumn4(){
-        return column4;
+    public String getEmail(){
+        return Email;
     }
-    public int getColumn5(){
-        return column5;
+    public int getTlfnr(){
+        return Tlfnr;
     }
-    public String getColumn6(){
-        return column6;
+    public String getAddresse(){
+        return Addresse;
     }
-    public String getColumn7(){
-        return column7;
+    public String getBy(){
+        return By;
     }
-    public int getColumn8(){
-        return column8;
+    public int getPostnr(){
+        return Postnr;
     }
 }

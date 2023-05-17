@@ -40,6 +40,12 @@ public class CustomerModel {
         Statement SQLkunder = null;
         ResultSet results = null;
         try {
+            connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;" +
+                    "databaseName=FerrariDB;" +
+                    "user=SA;" +
+                    "password=Fisk1234;" +
+                    "encrypt=true;" +
+                    "trustServerCertificate=true;");
             // hent kunde data fra databasen
             SQLkunder = connection.createStatement();
             results = SQLkunder.executeQuery("SELECT * FROM customer");
@@ -53,7 +59,7 @@ public class CustomerModel {
                         results.getString("lastname"),
                         results.getString("email"),
                         results.getInt("phonenumber"),
-                        results.getString("address"),
+                        results.getString("adress"),
                         results.getString("city"),
                         results.getInt("postcode")
                 );
@@ -92,4 +98,3 @@ public class CustomerModel {
         return dataList;
     }
 }
-

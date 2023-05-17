@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class CustomerController implements Initializable {
-    private CustomerModel database;
     @FXML
     private TableView<Kunder> kundeTabel;
     @FXML
@@ -40,17 +39,16 @@ public class CustomerController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        this.database = database;
 
         //opsætning af kollonner i tabellen
         column1.setCellValueFactory(new PropertyValueFactory<>("ID"));
         column2.setCellValueFactory(new PropertyValueFactory<>("Navn"));
         column3.setCellValueFactory(new PropertyValueFactory<>("Efternavn"));
         column4.setCellValueFactory(new PropertyValueFactory<>("Email"));
-        column5.setCellValueFactory(new PropertyValueFactory<>("Tlf nr."));
+        column5.setCellValueFactory(new PropertyValueFactory<>("Tlfnr"));
         column6.setCellValueFactory(new PropertyValueFactory<>("Addresse"));
         column7.setCellValueFactory(new PropertyValueFactory<>("By"));
-        column8.setCellValueFactory(new PropertyValueFactory<>("Postnr."));
+        column8.setCellValueFactory(new PropertyValueFactory<>("Postnr"));
 
         kundeTabel.setItems(CustomerModel.getDataList());
 
