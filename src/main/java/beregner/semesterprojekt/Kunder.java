@@ -45,4 +45,36 @@ public class Kunder {
     public int getPostnr(){
         return Postnr;
     }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public void setNavn(String navn) {
+        Navn = navn;
+    }
+
+    public void setEfternavn(String efternavn) {
+        Efternavn = efternavn;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public void setTlfnr(int tlfnr) {
+        Tlfnr = tlfnr;
+    }
+
+    public void setAddresse(String addresse) {
+        Addresse = addresse;
+    }
+
+    public void setBy(String by) {
+        By = by;
+    }
+
+    public void setPostnr(int postnr) {
+        Postnr = postnr;
+    }
 }

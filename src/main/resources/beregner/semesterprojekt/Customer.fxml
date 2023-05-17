@@ -63,35 +63,35 @@
         <Label id="header" alignment="CENTER" prefHeight="28.0" prefWidth="111.0" text="Opret bruger" />
     </HBox>
     <HBox layoutX="164.0" layoutY="418.0" prefHeight="40.0" prefWidth="685.0">
-        <TextField prefHeight="40.0" prefWidth="150.0" promptText="Fornavn" />
-        <TextField prefHeight="40.0" prefWidth="190.0" promptText="Efternavn">
+        <TextField fx:id="navnField" prefHeight="40.0" prefWidth="150.0" promptText="Fornavn" />
+        <TextField fx:id="efternavnField" prefHeight="40.0" prefWidth="190.0" promptText="Efternavn">
             <HBox.margin>
                 <Insets left="5.0" />
             </HBox.margin>
         </TextField>
-        <TextField prefHeight="40.0" prefWidth="160.0" promptText="Telefonnummer">
+        <TextField fx:id="tlfnrField" prefHeight="40.0" prefWidth="160.0" promptText="Telefonnummer">
             <HBox.margin>
                 <Insets left="5.0" />
             </HBox.margin>
         </TextField>
     </HBox>
     <HBox layoutX="164.0" layoutY="458.0" prefHeight="60.0" prefWidth="667.0">
-        <TextField prefHeight="40.0" prefWidth="150.0" promptText="Email">
+        <TextField fx:id="emailField" prefHeight="40.0" prefWidth="150.0" promptText="Email">
             <HBox.margin>
                 <Insets right="2.5" />
             </HBox.margin>
         </TextField>
-        <TextField prefHeight="40.0" prefWidth="190.0" promptText="Adresse">
+        <TextField fx:id="addresseField" prefHeight="40.0" prefWidth="190.0" promptText="Adresse">
             <HBox.margin>
                 <Insets left="2.5" right="2.5" />
             </HBox.margin>
         </TextField>
-        <TextField prefHeight="40.0" prefWidth="160.0" promptText="Postnummer">
+        <TextField fx:id="postnrField" prefHeight="40.0" prefWidth="160.0" promptText="Postnummer">
             <HBox.margin>
                 <Insets left="2.5" right="2.5" />
             </HBox.margin>
         </TextField>
-        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="67.0" style="-fx-background-color: #666666;" text="Opret">
+        <Button fx:id="opretButton" alignment="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="67.0" style="-fx-background-color: #666666;" text="Opret">
             <HBox.margin>
                 <Insets left="20.0" />
             </HBox.margin>

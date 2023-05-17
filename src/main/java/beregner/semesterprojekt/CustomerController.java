@@ -1,5 +1,6 @@
 package beregner.semesterprojekt;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -29,6 +30,21 @@ public class CustomerController implements Initializable {
     TableColumn<Kunder, String> column7;
     @FXML
     TableColumn<Kunder, Integer> column8;
+    @FXML
+    private TextField navnField;
+    @FXML
+    private TextField efternavnField;
+    @FXML
+    private TextField tlfnrField;
+    @FXML
+    private TextField emailField;
+    @FXML
+    private TextField addresseField;
+    @FXML
+    private TextField postnrField;
+
+    private Kunder kunder;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -57,5 +73,19 @@ public class CustomerController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    private void opretButtonAction(ActionEvent event) {
+        //hent værdierne fra textfields i view
+        String navn = navnField.getText();
+        String efternavn = efternavnField.getText();
+        String tlfnr = tlfnrField.getText();
+        String email = emailField.getText();
+        String adresse = addresseField.getText();
+        String postnr = postnrField.getText();
+
+        CustomerModel.opretKunde(column1, column2, column3, column4, column5, column6, column7, column8);
+
     }
 }
