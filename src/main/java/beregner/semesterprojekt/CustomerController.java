@@ -8,6 +8,7 @@ import com.ferrari.finances.dk.bank.InterestRate;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -41,9 +42,10 @@ public class CustomerController implements Initializable {
     @FXML
     private TextField addresseField;
     @FXML
+    private TextField byField;
+    @FXML
     private TextField postnrField;
-
-    private Kunder kunder;
+    private Kunder kunde;
 
 
     @Override
@@ -78,14 +80,14 @@ public class CustomerController implements Initializable {
     @FXML
     private void opretButtonAction(ActionEvent event) {
         //hent værdierne fra textfields i view
-        String navn = navnField.getText();
-        String efternavn = efternavnField.getText();
-        String tlfnr = tlfnrField.getText();
-        String email = emailField.getText();
-        String adresse = addresseField.getText();
-        String postnr = postnrField.getText();
+        kunde.setNavn(navnField.getText());
+        kunde.setEfternavn( efternavnField.getText());
+        kunde.setTlfnr(Integer.parseInt(tlfnrField.getText()));
+        kunde.setEmail(emailField.getText());
+        kunde.setAddresse(addresseField.getText());
+        kunde.setBy(byField.getText());
+        kunde.setPostnr(Integer.parseInt(postnrField.getText()));
 
-        CustomerModel.opretKunde(column1, column2, column3, column4, column5, column6, column7, column8);
-
+        CustomerModel.opretKunde();
     }
 }

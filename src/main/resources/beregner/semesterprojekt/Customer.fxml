@@ -69,33 +69,38 @@
                 <Insets left="5.0" />
             </HBox.margin>
         </TextField>
-        <TextField fx:id="tlfnrField" prefHeight="40.0" prefWidth="160.0" promptText="Telefonnummer">
+        <TextField fx:id="tlfnrField" prefHeight="40.0" prefWidth="107.0" promptText="Telefonnummer">
             <HBox.margin>
                 <Insets left="5.0" />
             </HBox.margin>
         </TextField>
+      <TextField fx:id="emailField" prefWidth="195.0" promptText="Email">
+         <HBox.margin>
+            <Insets left="5.0" />
+         </HBox.margin>
+      </TextField>
     </HBox>
-    <HBox layoutX="164.0" layoutY="458.0" prefHeight="60.0" prefWidth="667.0">
-        <TextField fx:id="emailField" prefHeight="40.0" prefWidth="150.0" promptText="Email">
+    <HBox layoutX="164.0" layoutY="458.0" prefHeight="35.0" prefWidth="667.0">
+        <TextField fx:id="addresseField" prefHeight="40.0" prefWidth="259.0" promptText="Adresse">
             <HBox.margin>
                 <Insets right="2.5" />
             </HBox.margin>
         </TextField>
-        <TextField fx:id="addresseField" prefHeight="40.0" prefWidth="190.0" promptText="Adresse">
+        <TextField fx:id="postnrField" prefHeight="40.0" prefWidth="88.0" promptText="Postnummer">
             <HBox.margin>
                 <Insets left="2.5" right="2.5" />
             </HBox.margin>
         </TextField>
-        <TextField fx:id="postnrField" prefHeight="40.0" prefWidth="160.0" promptText="Postnummer">
-            <HBox.margin>
-                <Insets left="2.5" right="2.5" />
-            </HBox.margin>
-        </TextField>
-        <Button fx:id="opretButton" alignment="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="67.0" style="-fx-background-color: #666666;" text="Opret">
-            <HBox.margin>
-                <Insets left="20.0" />
-            </HBox.margin>
-        </Button>
+      <TextField fx:id="byField" promptText="By">
+         <HBox.margin>
+            <Insets left="2.5" />
+         </HBox.margin>
+      </TextField>
+        <Button fx:id="opretButton" alignment="CENTER" mnemonicParsing="false" onAction="#opretButtonAction" prefHeight="39.0" prefWidth="67.0" style="-fx-background-color: #666666;" text="Opret">
+         <HBox.margin>
+            <Insets left="5.0" />
+         </HBox.margin>
+      </Button>
     </HBox>
     <TableView fx:id="kundeTabel" layoutX="164.0" layoutY="31.0" prefHeight="357.0" prefWidth="656.0" stylesheets="@stylesheetMain.css">
       <columns>
