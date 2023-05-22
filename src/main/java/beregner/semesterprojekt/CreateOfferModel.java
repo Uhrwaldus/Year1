@@ -93,7 +93,7 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
         }
     }
 
-    public static String getCustomerData(String name) {
+    public static String[] getCustomerData(String name) {
         try {
             PreparedStatement SQLCustInfo = connection.prepareStatement("SELECT firstname, lastname, email, phonenumber," +
                     " adress, city, postcode, CPR FROM customer WHERE firstname = ?");
@@ -109,12 +109,13 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
                 String city = resultSet.getString("city");
                 int postcode = resultSet.getInt("postcode");
                 int cpr = resultSet.getInt("CPR");
+                return new String[]{firstname, lastname, email, String.valueOf(phonenumber), address, city,
+                        String.valueOf(postcode), String.valueOf(cpr)};
             } else {
                 throw new SQLException("Customer not found");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return name;
     }
 }

@@ -57,17 +57,16 @@ public class CreateOfferController implements Initializable {
 
         customerBox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
-                String firstname = CreateOfferModel.getCustomerData(newValue);
-                firstnameInput.setText(CreateOfferModel.getCustomerData(firstname));
-                lastnameInput.setText(CreateOfferModel.;
+                String[] customerData = CreateOfferModel.getCustomerData(newValue);
+                firstnameInput.setText(customerData[0]);
+                lastnameInput.setText(customerData[1]);
+                emailInput.setText((customerData[2]));
+                phoneInput.setText(customerData[3]);
+                addressInput.setText(customerData[4]);
+                cityInput.setText(customerData[5]);
+                zipInput.setText(customerData[6]);
+                cprInput.setText(customerData[7]);
 
-                /*String email = CreateOfferModel.getCustomerData(newValue);
-                emailInput.setText(email);
-                int phonenumber = Integer.parseInt(CreateOfferModel.getCustomerData(newValue));
-                phoneInput.setText(String.valueOf(phonenumber));
-                String address = CreateOfferModel.getCustomerData(newValue);
-                addressInput.setText(address);
-                String city = CreateOfferModel.getCustomerData(newValue); */
                 } catch (Exception e) {
                 throw new RuntimeException(e);
             }
