@@ -78,10 +78,12 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
         ObservableList<String> customers = FXCollections.observableArrayList();
         try {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT firstname FROM customer");
+            ResultSet rs = stmt.executeQuery("SELECT firstname, lastname, email, phonenumber, adress, city, " +
+                    "postcode, CPR FROM customer");
             while (rs.next()) {
-                String customer = rs.getString("firstname");
-                customers.add(customer);
+                String firstname = rs.getString("firstname");
+
+                customers.add(firstname);
             }
             // sætter items i choicebox til navne fra arrayet
             choiceBox.setItems(customers);
@@ -93,17 +95,26 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
 
     public static String getCustomerData(String name) {
         try {
-            PreparedStatement SQLCustInfo = connection.prepareStatement("SELECT firstname FROM customer WHERE firstname = ?");
+            PreparedStatement SQLCustInfo = connection.prepareStatement("SELECT firstname, lastname, email, phonenumber," +
+                    " adress, city, postcode, CPR FROM customer WHERE firstname = ?");
             SQLCustInfo.setString(1, name);
             ResultSet resultSet = SQLCustInfo.executeQuery();
 
             if (resultSet.next()) {
-                return resultSet.getString("firstname");
+                String firstname = resultSet.getString("firstname");
+                String lastname = resultSet.getString("lastname");
+                String email = resultSet.getString("email");
+                int phonenumber = resultSet.getInt("phonenumber");
+                String address = resultSet.getString("adress");
+                String city = resultSet.getString("city");
+                int postcode = resultSet.getInt("postcode");
+                int cpr = resultSet.getInt("CPR");
             } else {
                 throw new SQLException("Customer not found");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return name;
     }
 }
