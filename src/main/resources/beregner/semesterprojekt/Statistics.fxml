@@ -65,15 +65,12 @@
             </opaqueInsets>
         </VBox>
         <Label id="header" fx:id="resultat" layoutX="439.0" layoutY="449.0" prefHeight="17.0" prefWidth="0.0" />
-        <ChoiceBox layoutX="152.0" layoutY="67.0" prefWidth="150.0" />
+        <ChoiceBox fx:id="Sælger" layoutX="152.0" layoutY="67.0" prefWidth="150.0" />
       <Text fill="WHITE" layoutX="167.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find sælger" textAlignment="CENTER" wrappingWidth="120.0" />
-      <TextField layoutX="151.0" layoutY="222.0" />
-      <Text fill="WHITE" layoutX="151.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sælger" />
       <Text fill="WHITE" layoutX="151.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal biler solgte" />
-      <TextField layoutX="151.0" layoutY="279.0" />
-      <TextField layoutX="151.0" layoutY="337.0" />
+      <TextField fx:id="Biler" layoutX="151.0" layoutY="279.0" />
+      <TextField fx:id="Lån" layoutX="151.0" layoutY="337.0" />
       <Text fill="WHITE" layoutX="151.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal lån udstedet" />
-      <ChoiceBox layoutX="355.0" layoutY="67.0" prefWidth="150.0" />
-      <Text fill="WHITE" layoutX="370.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Måned" textAlignment="CENTER" wrappingWidth="120.0" />
+      <Button layoutX="313.0" layoutY="64.0" mnemonicParsing="false" onAction="#showStats" text="Tryk" />
     </children>
 </AnchorPane>
