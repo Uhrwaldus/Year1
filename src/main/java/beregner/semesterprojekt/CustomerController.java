@@ -52,11 +52,11 @@ public class CustomerController implements Initializable {
     private Kunder kunde;
     private Opret opret;
 
+    CustomerModel database = new CustomerModel();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Connecter til databasen gennem HomeModel
-        CustomerModel database = new CustomerModel();
         try {
             database.Connect();
         } catch (SQLException e) {
@@ -98,5 +98,15 @@ public class CustomerController implements Initializable {
         opret.setCprnr(cprnrField.getText());
 
         CustomerModel.opretKunde();
+
+        // tøm felterne efter input
+        navnField.clear();
+        efternavnField.clear();
+        tlfnrField.clear();
+        emailField.clear();
+        addresseField.clear();
+        byField.clear();
+        postnrField.clear();
+        cprnrField.clear();
     }
 }

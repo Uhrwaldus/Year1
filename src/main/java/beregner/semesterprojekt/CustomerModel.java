@@ -38,8 +38,8 @@ public class CustomerModel {
     }
 
     public static void loadCustomers() throws SQLException {
-        Statement SQLkunder = null;
-        ResultSet results = null;
+        Statement SQLkunder;
+        ResultSet results;
         try {
             connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;" +
                     "databaseName=FerrariDB;" +
@@ -69,32 +69,6 @@ public class CustomerModel {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            // Luk af for ressourcerne efter data er hentet
-            /*
-            if (results != null) {
-                try {
-                    results.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if (SQLkunder != null) {
-                try {
-                    SQLkunder.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            } */
         }
     }
     public static ObservableList<Kunder> getDataList(){
@@ -105,17 +79,18 @@ public class CustomerModel {
         // sæt værdierne fra Opret ind i databasen
         try {
             PreparedStatement SQLopret = connection.prepareStatement(
-                    "INSERT INTO customer (column2, column3, column4, column5, column6, column7, column8, column9) " +
-                            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            SQLopret.setString(2,Opret.getNavn());
-            SQLopret.setString(3,Opret.getEfternavn());
+                    "INSERT INTO customer (firstname, lastname, email, phonenumber, adress, city, postcode, CPR) " +
+                            "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            SQLopret.setString(1,Opret.getNavn());
+            SQLopret.setString(2,Opret.getEfternavn());
+            SQLopret.setString(3,Opret.getEmail());
             SQLopret.setInt(4,Opret.getTlfnr());
-            SQLopret.setString(5,Opret.getEmail());
-            SQLopret.setString(6,Opret.getAddresse());
-            SQLopret.setString(7,Opret.getBy());
-            SQLopret.setInt(8,Opret.getPostnr());
-            SQLopret.setString(9,Opret.getCprnr());
+            SQLopret.setString(5,Opret.getAddresse());
+            SQLopret.setString(6,Opret.getBy());
+            SQLopret.setInt(7,Opret.getPostnr());
+            SQLopret.setString(8,Opret.getCprnr());
 
+            SQLopret.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
