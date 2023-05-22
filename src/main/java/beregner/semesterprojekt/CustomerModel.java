@@ -4,7 +4,7 @@ import java.sql.*;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
+// Ulrikke
 
 public class CustomerModel {
     private static Connection connection;
@@ -62,7 +62,8 @@ public class CustomerModel {
                         results.getInt("phonenumber"),
                         results.getString("adress"),
                         results.getString("city"),
-                        results.getInt("postcode")
+                        results.getInt("postcode"),
+                        results.getString("cpr")
                 );
                 dataList.add(data);
             }
@@ -70,6 +71,7 @@ public class CustomerModel {
             e.printStackTrace();
         } finally {
             // Luk af for ressourcerne efter data er hentet
+            /*
             if (results != null) {
                 try {
                     results.close();
@@ -92,7 +94,7 @@ public class CustomerModel {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-            }
+            } */
         }
     }
     public static ObservableList<Kunder> getDataList(){
@@ -100,17 +102,19 @@ public class CustomerModel {
     }
 
     public static void opretKunde() {
+        // sæt værdierne fra Opret ind i databasen
         try {
             PreparedStatement SQLopret = connection.prepareStatement(
-                    "INSERT INTO customer (column2, column3, column4, column5, column6, column7, column8) " +
-                            "VALUES (?, ?, ?, ?, ?, ?, ?)");
-            SQLopret.setString(2,Kunder.getNavn());
-            SQLopret.setString(3,Kunder.getEfternavn());
-            SQLopret.setInt(4,Kunder.getTlfnr());
-            SQLopret.setString(5,Kunder.getEmail());
-            SQLopret.setString(6,Kunder.getAddresse());
-            SQLopret.setString(7,Kunder.getBy());
-            SQLopret.setInt(8,Kunder.getPostnr());
+                    "INSERT INTO customer (column2, column3, column4, column5, column6, column7, column8, column9) " +
+                            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            SQLopret.setString(2,Opret.getNavn());
+            SQLopret.setString(3,Opret.getEfternavn());
+            SQLopret.setInt(4,Opret.getTlfnr());
+            SQLopret.setString(5,Opret.getEmail());
+            SQLopret.setString(6,Opret.getAddresse());
+            SQLopret.setString(7,Opret.getBy());
+            SQLopret.setInt(8,Opret.getPostnr());
+            SQLopret.setString(9,Opret.getCprnr());
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

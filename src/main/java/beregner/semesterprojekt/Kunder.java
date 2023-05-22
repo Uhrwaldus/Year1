@@ -1,5 +1,6 @@
 package beregner.semesterprojekt;
 
+// Ulrikke
 public class Kunder {
     private int ID;
     private static String Navn;
@@ -9,8 +10,9 @@ public class Kunder {
     private static String Addresse;
     private static String By;
     private static int Postnr;
+    private static String Cprnr;
 
-    public Kunder(int column1, String column2, String column3, String column4, int column5, String column6, String column7, int column8){
+    public Kunder(int column1, String column2, String column3, String column4, int column5, String column6, String column7, int column8, String column9){
         this.ID = column1;
         Navn = column2;
         Efternavn = column3;
@@ -19,6 +21,7 @@ public class Kunder {
         Addresse = column6;
         By = column7;
         Postnr = column8;
+        Cprnr = column9;
     }
 
     public int getID(){
@@ -45,32 +48,5 @@ public class Kunder {
     public static int getPostnr(){
         return Postnr;
     }
-
-    public void setNavn(String navn) {
-        Navn = navn;
-    }
-
-    public void setEfternavn(String efternavn) {
-        Efternavn = efternavn;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
-
-    public void setTlfnr(int tlfnr) {
-        Tlfnr = tlfnr;
-    }
-
-    public void setAddresse(String addresse) {
-        Addresse = addresse;
-    }
-
-    public void setBy(String by) {
-        By = by;
-    }
-
-    public void setPostnr(int postnr) {
-        Postnr = postnr;
-    }
+    public static String getCprnr(){return Cprnr;}
 }

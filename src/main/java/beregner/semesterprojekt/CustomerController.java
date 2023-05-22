@@ -11,7 +11,7 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
+// Ulrikke
 public class CustomerController implements Initializable {
     @FXML
     private TableView<Kunder> kundeTabel;
@@ -32,6 +32,8 @@ public class CustomerController implements Initializable {
     @FXML
     TableColumn<Kunder, Integer> column8;
     @FXML
+    TableColumn<Kunder,String> column9;
+    @FXML
     private TextField navnField;
     @FXML
     private TextField efternavnField;
@@ -45,7 +47,10 @@ public class CustomerController implements Initializable {
     private TextField byField;
     @FXML
     private TextField postnrField;
+    @FXML
+    private TextField cprnrField;
     private Kunder kunde;
+    private Opret opret;
 
 
     @Override
@@ -67,6 +72,7 @@ public class CustomerController implements Initializable {
         column6.setCellValueFactory(new PropertyValueFactory<>("Addresse"));
         column7.setCellValueFactory(new PropertyValueFactory<>("By"));
         column8.setCellValueFactory(new PropertyValueFactory<>("Postnr"));
+        column8.setCellValueFactory(new PropertyValueFactory<>("Cprnr"));
 
         kundeTabel.setItems(CustomerModel.getDataList());
 
@@ -75,18 +81,21 @@ public class CustomerController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+        opret = new Opret();
     }
 
     @FXML
     private void opretButtonAction(ActionEvent event) {
-        //hent værdierne fra textfields i view
-        kunde.setNavn(navnField.getText());
-        kunde.setEfternavn( efternavnField.getText());
-        kunde.setTlfnr(Integer.parseInt(tlfnrField.getText()));
-        kunde.setEmail(emailField.getText());
-        kunde.setAddresse(addresseField.getText());
-        kunde.setBy(byField.getText());
-        kunde.setPostnr(Integer.parseInt(postnrField.getText()));
+        //hent værdierne fra textfields i view og sæt dem i Opret klassen
+        opret.setNavn(navnField.getText());
+        opret.setEfternavn( efternavnField.getText());
+        opret.setTlfnr(Integer.parseInt(tlfnrField.getText()));
+        opret.setEmail(emailField.getText());
+        opret.setAddresse(addresseField.getText());
+        opret.setBy(byField.getText());
+        opret.setPostnr(Integer.parseInt(postnrField.getText()));
+        opret.setCprnr(cprnrField.getText());
 
         CustomerModel.opretKunde();
     }
