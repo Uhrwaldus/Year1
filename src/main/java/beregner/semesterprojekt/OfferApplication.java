@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomeApplication extends Application {
+public class OfferApplication extends Application {
     /*
     public static void main(String[] args) throws SQLException {
         //connect til database
@@ -17,7 +17,7 @@ public class HomeApplication extends Application {
     */
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("Home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(OfferApplication.class.getResource("Offer.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setTitle("Home");
