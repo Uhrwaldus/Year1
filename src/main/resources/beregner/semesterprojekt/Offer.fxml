@@ -65,8 +65,8 @@
       <TableView fx:id="offerTabel" layoutX="120.0" layoutY="58.0" prefHeight="412.0" prefWidth="680.0" stylesheets="@stylesheetMain.css">
         <columns>
           <TableColumn fx:id="column1" prefWidth="33.0" text="ID" />
-          <TableColumn fx:id="column2" prefWidth="63.0" text="Dato" />
-            <TableColumn fx:id="column3" prefWidth="67.0" text="Rente" />
+          <TableColumn fx:id="column2" prefWidth="88.0" text="Dato" />
+            <TableColumn fx:id="column3" prefWidth="42.0" text="Rente" />
             <TableColumn fx:id="column4" prefWidth="103.0" text="Kredit vurdering" />
             <TableColumn fx:id="column5" prefWidth="83.0" text="Total lån" />
             <TableColumn fx:id="column6" prefWidth="82.0" text="Udbetaling" />

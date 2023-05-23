@@ -46,16 +46,16 @@ public class OfferController implements Initializable {
         }
 
         //opsætning af kollonner i tabellen
-        column1.setCellValueFactory(new PropertyValueFactory<>("offer_ID"));
+        column1.setCellValueFactory(new PropertyValueFactory<>("id"));
         column2.setCellValueFactory(new PropertyValueFactory<>("date"));
         column3.setCellValueFactory(new PropertyValueFactory<>("interest"));
-        column4.setCellValueFactory(new PropertyValueFactory<>("credit_rating"));
-        column5.setCellValueFactory(new PropertyValueFactory<>("loan_total"));
+        column4.setCellValueFactory(new PropertyValueFactory<>("rating"));
+        column5.setCellValueFactory(new PropertyValueFactory<>("loan"));
         column6.setCellValueFactory(new PropertyValueFactory<>("deposit"));
         column7.setCellValueFactory(new PropertyValueFactory<>("duration"));
-        column8.setCellValueFactory(new PropertyValueFactory<>("customer_ID"));
-        column8.setCellValueFactory(new PropertyValueFactory<>("salesman_ID"));
-        column9.setCellValueFactory(new PropertyValueFactory<>("car_ID"));
+        column8.setCellValueFactory(new PropertyValueFactory<>("customerID"));
+        column9.setCellValueFactory(new PropertyValueFactory<>("saleID"));
+        column10.setCellValueFactory(new PropertyValueFactory<>("carID"));
 
         offerTabel.setItems(OfferModel.getDataList());
 
