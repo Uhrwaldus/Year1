@@ -72,7 +72,7 @@ public class CustomerController implements Initializable {
         column6.setCellValueFactory(new PropertyValueFactory<>("Addresse"));
         column7.setCellValueFactory(new PropertyValueFactory<>("By"));
         column8.setCellValueFactory(new PropertyValueFactory<>("Postnr"));
-        column8.setCellValueFactory(new PropertyValueFactory<>("Cprnr"));
+        column9.setCellValueFactory(new PropertyValueFactory<>("Cprnr"));
 
         kundeTabel.setItems(CustomerModel.getDataList());
 
@@ -81,7 +81,6 @@ public class CustomerController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
         opret = new Opret();
     }
 
@@ -108,5 +107,11 @@ public class CustomerController implements Initializable {
         byField.clear();
         postnrField.clear();
         cprnrField.clear();
+
+        try {
+            CustomerModel.loadCustomers();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

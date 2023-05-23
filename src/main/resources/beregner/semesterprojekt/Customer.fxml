@@ -112,6 +112,7 @@
           <TableColumn fx:id="column6" prefWidth="114.0" text="Adresse" />
           <TableColumn fx:id="column7" prefWidth="58.0" text="By" />
           <TableColumn fx:id="column8" minWidth="2.0" prefWidth="57.0" text="Post nr." />
+         <TableColumn fx:id="column9" minWidth="2.0" prefWidth="57.0" text="CPR nr" />
       </columns>
     </TableView>
      <Button fx:id="opretButton" alignment="CENTER" layoutX="440.0" layoutY="493.0" mnemonicParsing="false" onAction="#opretButtonAction" prefHeight="39.0" prefWidth="67.0" style="-fx-background-color: #666666;" text="Opret" />
