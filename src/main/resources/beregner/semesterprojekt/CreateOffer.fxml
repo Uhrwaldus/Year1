@@ -65,51 +65,51 @@
             <Insets />
          </opaqueInsets>
       </VBox>
-      <Pane id="center-pane" layoutX="152.0" layoutY="45.0" prefHeight="481.0" prefWidth="612.0">
+      <Pane id="center-pane" layoutX="151.0" layoutY="48.0" prefHeight="469.0" prefWidth="612.0">
          <children>
-            <Button fx:id="createOfferOnClick" layoutX="262.0" layoutY="423.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="105.0" text="Opret tilbud" />
-            <Label layoutX="20.0" layoutY="96.0" text="Fornavn" />
-            <Label layoutX="200.0" layoutY="101.0" prefHeight="15.0" prefWidth="85.0" text="Rentesats (%)" />
-            <Label layoutX="325.0" layoutY="101.0" text="Kreditvurdering" />
-            <Label layoutX="201.0" layoutY="36.0" text="CPR" />
-            <Button fx:id="checkCPR" layoutX="450.0" layoutY="60.0" mnemonicParsing="false" prefWidth="143.0" text="Tjek CPR" />
-            <TextField fx:id="cprInput" layoutX="200.0" layoutY="60.0" prefWidth="230.0" />
-            <TextField fx:id="interestInput" layoutX="200.0" layoutY="120.0" prefWidth="94.0" />
-            <TextField fx:id="creditInput" layoutX="325.0" layoutY="120.0" prefWidth="105.0" />
-            <TextField fx:id="firstnameInput" layoutX="20.0" layoutY="120.0" />
-            <TextField fx:id="lastnameInput" layoutX="20.0" layoutY="180.0" />
-            <TextField fx:id="phoneInput" layoutX="20.0" layoutY="240.0" />
-            <TextField fx:id="addressInput" layoutX="20.0" layoutY="300.0" />
-            <TextField fx:id="cityInput" layoutX="20.0" layoutY="360.0" />
-            <TextField fx:id="depositInput" layoutX="200.0" layoutY="240.0" prefWidth="230.0" />
-            <TextField fx:id="emailInput" layoutX="200.0" layoutY="180.0" prefWidth="230.0" />
-            <Label layoutX="20.0" layoutY="160.0" prefHeight="15.0" prefWidth="68.0" text="Efternavn" />
-            <Label layoutX="20.0" layoutY="220.0" prefHeight="15.0" prefWidth="113.0" text="Telefonnummer" />
-            <Label layoutX="20.0" layoutY="280.0" prefHeight="15.0" prefWidth="74.0" text="Adresse" />
-            <Label layoutX="20.0" layoutY="340.0" prefHeight="15.0" prefWidth="30.0" text="By" />
-            <Label layoutX="200.0" layoutY="160.0" text="Email" />
-            <TextField fx:id="zipInput" layoutX="20.0" layoutY="420.0" />
-            <Label layoutX="20.0" layoutY="400.0" text="Postnummer" />
-            <Label layoutX="200.0" layoutY="220.0" text="Udbetaling" />
-            <TextField fx:id="salesIDInput" layoutX="450.0" layoutY="120.0" prefWidth="150.0" />
-            <Label layoutX="450.0" layoutY="101.0" text="Sælger ID" />
-            <Label layoutX="261.0" layoutY="298.0" text="Afbetalings periode" />
-            <Label layoutX="196.0" layoutY="322.0" text="12" />
-            <Label layoutX="229.0" layoutY="322.0" text="24" />
-            <Label layoutX="262.0" layoutY="322.0" text="36" />
-            <Label layoutX="296.0" layoutY="322.0" text="48" />
-            <Label layoutX="328.0" layoutY="322.0" text="60" />
-            <Label layoutX="360.0" layoutY="322.0" text="72" />
-            <Label layoutX="393.0" layoutY="322.0" text="84" />
-            <Label layoutX="425.0" layoutY="322.0" text="96" />
-            <Slider fx:id="periode" blockIncrement="12.0" layoutX="196.0" layoutY="342.0" majorTickUnit="12.0" max="96.0" min="12.0" minorTickCount="0" prefHeight="24.0" prefWidth="242.0" showTickMarks="true" snapToTicks="true" />
-            <Label layoutX="288.0" layoutY="369.0" text="Måneder" />
-            <TextField fx:id="carPriceInput" layoutX="450.0" layoutY="240.0" prefWidth="150.0" />
-            <Label layoutX="450.0" layoutY="220.0" prefHeight="15.0" prefWidth="44.0" text="Pris" />
-            <ChoiceBox fx:id="customerBox" layoutX="19.0" layoutY="64.0" prefWidth="150.0" />
-            <Label layoutX="20.0" layoutY="35.0" text="Vælg kunde" />
-            <Label layoutX="449.0" layoutY="165.0" text="Vælg bil" />
-            <ChoiceBox fx:id="carBox" layoutX="450.0" layoutY="183.0" prefWidth="150.0" />
+            <Button fx:id="createOfferOnClick" layoutX="262.0" layoutY="395.0" mnemonicParsing="false" onAction="#CreateOfferOnClick" prefHeight="44.0" prefWidth="105.0" text="Opret tilbud" />
+            <Label layoutX="20.0" layoutY="83.0" text="Fornavn" />
+            <Label layoutX="200.0" layoutY="88.0" prefHeight="15.0" prefWidth="85.0" text="Rentesats (%)" />
+            <Label layoutX="325.0" layoutY="88.0" text="Kreditvurdering" />
+            <Label layoutX="201.0" layoutY="23.0" text="CPR" />
+            <Button fx:id="checkCPR" layoutX="450.0" layoutY="47.0" mnemonicParsing="false" prefWidth="143.0" text="Tjek CPR" />
+            <TextField fx:id="cprInput" layoutX="200.0" layoutY="47.0" prefWidth="230.0" />
+            <TextField fx:id="interestInput" layoutX="200.0" layoutY="107.0" prefWidth="94.0" />
+            <TextField fx:id="creditInput" layoutX="325.0" layoutY="107.0" prefWidth="105.0" />
+            <TextField fx:id="firstnameInput" layoutX="20.0" layoutY="107.0" />
+            <TextField fx:id="lastnameInput" layoutX="20.0" layoutY="167.0" />
+            <TextField fx:id="phoneInput" layoutX="20.0" layoutY="227.0" />
+            <TextField fx:id="addressInput" layoutX="20.0" layoutY="287.0" />
+            <TextField fx:id="cityInput" layoutX="20.0" layoutY="347.0" />
+            <TextField fx:id="depositInput" layoutX="200.0" layoutY="227.0" prefWidth="230.0" />
+            <TextField fx:id="emailInput" layoutX="200.0" layoutY="167.0" prefWidth="230.0" />
+            <Label layoutX="20.0" layoutY="147.0" prefHeight="15.0" prefWidth="68.0" text="Efternavn" />
+            <Label layoutX="20.0" layoutY="207.0" prefHeight="15.0" prefWidth="113.0" text="Telefonnummer" />
+            <Label layoutX="20.0" layoutY="267.0" prefHeight="15.0" prefWidth="74.0" text="Adresse" />
+            <Label layoutX="20.0" layoutY="327.0" prefHeight="15.0" prefWidth="30.0" text="By" />
+            <Label layoutX="200.0" layoutY="147.0" text="Email" />
+            <TextField fx:id="zipInput" layoutX="20.0" layoutY="407.0" />
+            <Label layoutX="20.0" layoutY="387.0" text="Postnummer" />
+            <Label layoutX="200.0" layoutY="207.0" text="Udbetaling" />
+            <TextField fx:id="salesIDInput" layoutX="450.0" layoutY="107.0" prefWidth="150.0" />
+            <Label layoutX="450.0" layoutY="88.0" text="Sælger ID" />
+            <Label layoutX="261.0" layoutY="275.0" text="Afbetalings periode" />
+            <Label layoutX="196.0" layoutY="299.0" text="12" />
+            <Label layoutX="229.0" layoutY="299.0" text="24" />
+            <Label layoutX="262.0" layoutY="299.0" text="36" />
+            <Label layoutX="296.0" layoutY="299.0" text="48" />
+            <Label layoutX="328.0" layoutY="299.0" text="60" />
+            <Label layoutX="360.0" layoutY="299.0" text="72" />
+            <Label layoutX="393.0" layoutY="299.0" text="84" />
+            <Label layoutX="425.0" layoutY="299.0" text="96" />
+            <Slider fx:id="durationInput" blockIncrement="12.0" layoutX="196.0" layoutY="319.0" majorTickUnit="12.0" max="96.0" min="12.0" minorTickCount="0" prefHeight="24.0" prefWidth="242.0" showTickMarks="true" snapToTicks="true" />
+            <Label layoutX="288.0" layoutY="346.0" text="Måneder" />
+            <TextField fx:id="carPriceInput" layoutX="450.0" layoutY="227.0" prefWidth="150.0" />
+            <Label layoutX="450.0" layoutY="207.0" prefHeight="15.0" prefWidth="44.0" text="Pris" />
+            <ChoiceBox fx:id="customerBox" layoutX="19.0" layoutY="51.0" prefWidth="150.0" />
+            <Label layoutX="20.0" layoutY="22.0" text="Vælg kunde" />
+            <Label layoutX="449.0" layoutY="152.0" text="Vælg bil" />
+            <ChoiceBox fx:id="carBox" layoutX="450.0" layoutY="170.0" prefWidth="150.0" />
          </children>
       </Pane>
    </children>

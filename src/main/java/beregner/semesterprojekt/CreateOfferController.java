@@ -1,13 +1,13 @@
 package beregner.semesterprojekt;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -15,10 +15,39 @@ public class CreateOfferController implements Initializable {
     private CreateOfferModel database;
 
     @FXML
-    private TextField firstnameInput, lastnameInput, emailInput, addressInput, cityInput, zipInput, cprInput,
-            interestInput, creditInput, depositInput, carNameInput, carPriceInput, phoneInput, salesIDInput;
+    private TextField firstnameInput;
+    @FXML
+    private TextField lastnameInput;
+    @FXML
+    private TextField emailInput;
+    @FXML
+    private TextField addressInput;
+    @FXML
+    private TextField cityInput;
+    @FXML
+    private TextField zipInput;
+    @FXML
+    private TextField cprInput;
+    @FXML
+    private TextField interestInput;
+    @FXML
+    private TextField creditInput;
+    @FXML
+    private TextField depositInput;
+    @FXML
+    private TextField carNameInput;
+    @FXML
+    private TextField carPriceInput;
+    @FXML
+    private TextField phoneInput;
+    @FXML
+    private TextField salesIDInput;
     @FXML
     private Button createOfferOnClick;
+    @FXML
+    private Slider durationInput;
+    @FXML
+    private DatePicker date;
     @FXML
     private ChoiceBox<String> customerBox;
     @FXML
@@ -71,5 +100,16 @@ public class CreateOfferController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
+
+    }
+    public void CreateOfferOnClick(ActionEvent event) {
+        CreateOffer.setInterest(Double.parseDouble(interestInput.getText()));
+        CreateOffer.setCredit_rating(creditInput.getText());
+        CreateOffer.setDeposit(Integer.parseInt(depositInput.getText()));
+        CreateOffer.setDuration((int) durationInput.getValue());
+        CreateOffer.setSalesID(Integer.parseInt(salesIDInput.getText()));
+
+        CreateOfferModel.setOfferInfo();
+
     }
 }

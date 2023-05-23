@@ -118,4 +118,23 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
             throw new RuntimeException(e);
         }
     }
+    public static void setOfferInfo() {
+        try {
+            PreparedStatement SQLoffer = connection.prepareStatement("INSERT INTO offer ( interest, " +
+                    "credit_rating, deposit, duration, salesman_ID, date) VALUES (?, ?, ?, ?, ?, GETDATE())");
+            PreparedStatement SQLkundeID = connection.prepareStatement("SELECT customer_ID FROM customer " +
+                    "WHERE firstname = ?");
+            SQLoffer.setDouble(1, CreateOffer.getInterest());
+            SQLoffer.setString(2, CreateOffer.getCredit_rating());
+            SQLoffer.setInt(3, CreateOffer.getDeposit());
+            SQLoffer.setInt(4, CreateOffer.getDuration());
+            SQLoffer.setInt(5, CreateOffer.getSalesID());
+
+
+            SQLkundeID.setString(1, "customer_ID");
+            SQLoffer.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
