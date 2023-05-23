@@ -1,6 +1,8 @@
 package beregner.semesterprojekt;
 
 
+import FFL.src.com.ferrari.finances.dk.rki.CreditRator;
+import FFL.src.com.ferrari.finances.dk.rki.Rating;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -109,11 +111,15 @@ public class CreateOfferController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
-
     }
     public void InsertDataFromCPR(ActionEvent event) {
         double tester = com.ferrari.finances.dk.bank.InterestRate.i().todaysRate();
         interestInput.setText(String.valueOf(tester));
+
+        String cpr = cprInput.getText();
+
+        Rating creditRating = FFL.src.com.ferrari.finances.dk.rki.CreditRator.i().rate(cpr);
+        creditInput.setText(String.valueOf(creditRating));
 
     }
     public void CreateOfferOnClick(ActionEvent event) {

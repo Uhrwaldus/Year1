@@ -2,7 +2,7 @@ package test;
 import java.util.Random;
 
 import com.ferrari.finances.dk.bank.InterestRate;
-import com.ferrari.finances.dk.rki.CreditRator;
+import FFL.src.com.ferrari.finances.dk.rki.CreditRator;
 
 public class Main {
   private static Random rnd = new Random();

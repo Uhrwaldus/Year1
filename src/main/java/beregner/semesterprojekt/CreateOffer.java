@@ -13,6 +13,7 @@ public class CreateOffer {
     private static int custID;
     private static int carID;
     private static double total;
+    private static int cpr;
 
     public static void setInterest(double Interest) {interest = Interest;}
     public static void setCredit_rating(String Credit_Rating) {credit_rating = Credit_Rating;}
@@ -23,6 +24,7 @@ public class CreateOffer {
     public static void setCustID(int CustID) {custID = CustID;}
     public static void setcarID(int CarID) {carID = CarID;}
     public static void setTotal(double Total) {total = Total;}
+    public static void setCPR(int CPR) {cpr = CPR;}
 
     public static double getInterest() {return interest;}
     public static String getCredit_rating() {return credit_rating;}
@@ -33,6 +35,7 @@ public class CreateOffer {
     public static int getCustID() {return custID;}
     public static int getCarID() {return carID;}
     public static double getTotal() {return total;}
+    public static int getCpr() {return cpr;}
 
 
 }
