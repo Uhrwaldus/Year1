@@ -116,6 +116,7 @@
             <TextField fx:id="carIDinput" layoutX="450.0" layoutY="227.0" />
             <TextField fx:id="result" layoutX="240.0" layoutY="454.0" />
             <Label layoutX="239.0" layoutY="433.0" text="Månedlig afbetaling" />
+            <Label fx:id="errorlabel" layoutX="400.0" layoutY="425.0" prefHeight="15.0" prefWidth="194.0" />
          </children>
       </Pane>
    </children>

@@ -134,6 +134,37 @@ public class CreateOfferController implements Initializable {
         String carIDText = carIDinput.getText();
         String carPriceText = carPriceInput.getText();
 
+        double fuck = 0.0; // Default value
+
+        // Calculate the value for fuck based on creditRatingText
+        if (creditRatingText.equals("A")) {
+            fuck = 0.01;
+        } else if (creditRatingText.equals("B")) {
+            fuck = 0.02;
+        } else if (creditRatingText.equals("C")) {
+            fuck = 0.03;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Kunden er i RKI");
+            alert.setHeaderText("Stop finansieringen af kunden med det samme");
+            alert.showAndWait();
+            return; // Exit the method if there is an error
+        }
+
+        double bitch = 0.0;
+
+        if(duration >= 36) {
+            bitch = 0.01;
+        }
+
+        double deposit = Double.parseDouble(depositText);
+        double price = Double.parseDouble(carPriceText);
+        double loan_total = (price - deposit) * ((com.ferrari.finances.dk.bank.InterestRate.i().todaysRate() / 100) +
+                (1 + 0.02));
+        System.out.println(loan_total);
+        double total = (price - deposit) * ((com.ferrari.finances.dk.bank.InterestRate.i().todaysRate() / 100) +
+                (1 + fuck + bitch)) / 60;
+
         // Set properties of CreateOffer object
         CreateOffer.setInterest(Double.parseDouble(interestText));
         CreateOffer.setCredit_rating(creditRatingText);
@@ -142,14 +173,6 @@ public class CreateOfferController implements Initializable {
         CreateOffer.setSalesID(Integer.parseInt(salesIDText));
         CreateOffer.setCustID(Integer.parseInt(custIDText));
         CreateOffer.setcarID(Integer.parseInt(carIDText));
-
-        // Perform calculations
-        double deposit = Double.parseDouble(depositText);
-        double price = Double.parseDouble(carPriceText);
-        double total = ((price - deposit) / duration *
-                (com.ferrari.finances.dk.bank.InterestRate.i().todaysRate() / 100 + 1));
-
-        // Set total property of CreateOffer object
         CreateOffer.setTotal(total);
 
         // Update result text component
