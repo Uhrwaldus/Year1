@@ -10,6 +10,7 @@ import static java.sql.DriverManager.getConnection;
 
 public class CreateOfferModel {
     private static Connection connection;
+    private static CreateOfferModel database;
     public boolean Connect() throws SQLException {
 
         String connectionString =
@@ -56,7 +57,7 @@ public class CreateOfferModel {
             e.printStackTrace();
         }
     }
-    public static double getPrice(String bil) throws SQLException {
+    public static double getCarPrice(String bil) throws SQLException {
         // Henter prisen fra det tilhørende navn på bilen i databasen
         try {
             PreparedStatement SQLpris = connection.prepareStatement("SELECT car_price FROM car WHERE car_name = ?");
@@ -69,6 +70,22 @@ public class CreateOfferModel {
                 throw new SQLException("Der er ingen pris på " + bil);
             }
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static int getCarID(String id) throws SQLException {
+        try {
+            PreparedStatement SQLid = connection.prepareStatement("SELECT car_ID FROM car WHERE car_name = ?");
+            SQLid.setString(1, id);
+            ResultSet rs = SQLid.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt("car_ID");
+            } else {
+                throw new SQLException("Der skete en fejl, prøv venligt igen");
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -95,12 +112,13 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
 
     public static String[] getCustomerData(String name) {
         try {
-            PreparedStatement SQLCustInfo = connection.prepareStatement("SELECT firstname, lastname, email, phonenumber," +
+            PreparedStatement SQLCustInfo = connection.prepareStatement("SELECT customer_ID, firstname, lastname, email, phonenumber," +
                     " adress, city, postcode, CPR FROM customer WHERE firstname = ?");
             SQLCustInfo.setString(1, name);
             ResultSet resultSet = SQLCustInfo.executeQuery();
 
             if (resultSet.next()) {
+                int customer_ID = resultSet.getInt("customer_ID");
                 String firstname = resultSet.getString("firstname");
                 String lastname = resultSet.getString("lastname");
                 String email = resultSet.getString("email");
@@ -109,7 +127,7 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
                 String city = resultSet.getString("city");
                 int postcode = resultSet.getInt("postcode");
                 int cpr = resultSet.getInt("CPR");
-                return new String[]{firstname, lastname, email, String.valueOf(phonenumber), address, city,
+                return new String[]{String.valueOf(customer_ID), firstname, lastname, email, String.valueOf(phonenumber), address, city,
                         String.valueOf(postcode), String.valueOf(cpr)};
             } else {
                 throw new SQLException("Customer not found");
@@ -118,20 +136,23 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
             throw new RuntimeException(e);
         }
     }
+
     public static void setOfferInfo() {
         try {
             PreparedStatement SQLoffer = connection.prepareStatement("INSERT INTO offer ( interest, " +
-                    "credit_rating, deposit, duration, salesman_ID, date) VALUES (?, ?, ?, ?, ?, GETDATE())");
-            PreparedStatement SQLkundeID = connection.prepareStatement("SELECT customer_ID FROM customer " +
-                    "WHERE firstname = ?");
+                    "credit_rating, deposit, duration, salesman_ID, customer_ID, car_ID, loan_total, date) VALUES " +
+                    "(?, ?, ?, ?, ?, ?, ?, ?, GETDATE())");
+
             SQLoffer.setDouble(1, CreateOffer.getInterest());
             SQLoffer.setString(2, CreateOffer.getCredit_rating());
             SQLoffer.setInt(3, CreateOffer.getDeposit());
-            SQLoffer.setInt(4, CreateOffer.getDuration());
+            SQLoffer.setDouble(4, CreateOffer.getDuration());
             SQLoffer.setInt(5, CreateOffer.getSalesID());
+            SQLoffer.setInt(6, CreateOffer.getCustID());
+            SQLoffer.setInt(7, CreateOffer.getCarID());
+            SQLoffer.setDouble(8, CreateOffer.getTotal());
 
 
-            SQLkundeID.setString(1, "customer_ID");
             SQLoffer.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

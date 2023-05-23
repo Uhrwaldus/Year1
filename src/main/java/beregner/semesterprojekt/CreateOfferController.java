@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -35,19 +37,21 @@ public class CreateOfferController implements Initializable {
     @FXML
     private TextField depositInput;
     @FXML
-    private TextField carNameInput;
-    @FXML
     private TextField carPriceInput;
     @FXML
     private TextField phoneInput;
     @FXML
     private TextField salesIDInput;
     @FXML
+    private TextField kundeIDinput;
+    @FXML
+    private TextField carIDinput;
+    @FXML
+    private TextField result;
+    @FXML
     private Button createOfferOnClick;
     @FXML
     private Slider durationInput;
-    @FXML
-    private DatePicker date;
     @FXML
     private ChoiceBox<String> customerBox;
     @FXML
@@ -71,8 +75,11 @@ public class CreateOfferController implements Initializable {
 
         carBox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
-                double carPrice = CreateOfferModel.getPrice((String) newValue);
-                carPriceInput.setText(String.valueOf(carPrice));
+                double price = CreateOfferModel.getCarPrice(newValue);
+                carPriceInput.setText(String.valueOf(price));
+                int id = CreateOfferModel.getCarID(newValue);
+                carIDinput.setText(String.valueOf(id));
+
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -87,14 +94,15 @@ public class CreateOfferController implements Initializable {
         customerBox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
                 String[] customerData = CreateOfferModel.getCustomerData(newValue);
-                firstnameInput.setText(customerData[0]);
-                lastnameInput.setText(customerData[1]);
-                emailInput.setText((customerData[2]));
-                phoneInput.setText(customerData[3]);
-                addressInput.setText(customerData[4]);
-                cityInput.setText(customerData[5]);
-                zipInput.setText(customerData[6]);
-                cprInput.setText(customerData[7]);
+                kundeIDinput.setText(customerData[0]);
+                firstnameInput.setText(customerData[1]);
+                lastnameInput.setText(customerData[2]);
+                emailInput.setText((customerData[3]));
+                phoneInput.setText(customerData[4]);
+                addressInput.setText(customerData[5]);
+                cityInput.setText(customerData[6]);
+                zipInput.setText(customerData[7]);
+                cprInput.setText(customerData[8]);
 
                 } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -103,13 +111,36 @@ public class CreateOfferController implements Initializable {
 
     }
     public void CreateOfferOnClick(ActionEvent event) {
-        CreateOffer.setInterest(Double.parseDouble(interestInput.getText()));
-        CreateOffer.setCredit_rating(creditInput.getText());
-        CreateOffer.setDeposit(Integer.parseInt(depositInput.getText()));
-        CreateOffer.setDuration((int) durationInput.getValue());
-        CreateOffer.setSalesID(Integer.parseInt(salesIDInput.getText()));
+        // Remove non-numeric characters from input strings
+        String interestText = interestInput.getText().replaceAll("[^\\d.]", "");
+        String creditRatingText = creditInput.getText();
+        String depositText = depositInput.getText().replaceAll("[^\\d.]", "");
+        int duration = (int) durationInput.getValue();  // Access the value directly as an int
+        String salesIDText = salesIDInput.getText().replaceAll("[^\\d]", "");
+        String custIDText = kundeIDinput.getText().replaceAll("[^\\d]", "");
+        String carIDText = carIDinput.getText().replaceAll("[^\\d]", "");
+        String carPriceText = carPriceInput.getText().replaceAll("[^\\d.]", "");
+
+        // Set properties of CreateOffer object
+        CreateOffer.setInterest(Double.parseDouble(interestText));
+        CreateOffer.setCredit_rating(creditRatingText);
+        CreateOffer.setDeposit(Integer.parseInt(depositText));
+        CreateOffer.setDuration(duration);
+        CreateOffer.setSalesID(Integer.parseInt(salesIDText));
+        CreateOffer.setCustID(Integer.parseInt(custIDText));
+        CreateOffer.setcarID(Integer.parseInt(carIDText));
+
+        // Perform calculations
+        double deposit = Double.parseDouble(depositText);
+        double price = Double.parseDouble(carPriceText);
+        double total = ((price - deposit) / duration * (com.ferrari.finances.dk.bank.InterestRate.i().todaysRate() / 100 + 1));
+
+        // Set total property of CreateOffer object
+        CreateOffer.setTotal(total);
+
+        // Update result text component
+        result.setText(String.valueOf(total));
 
         CreateOfferModel.setOfferInfo();
-
     }
 }
