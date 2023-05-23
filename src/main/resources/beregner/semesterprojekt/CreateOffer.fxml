@@ -72,7 +72,7 @@
             <Label layoutX="200.0" layoutY="88.0" prefHeight="15.0" prefWidth="85.0" text="Rentesats (%)" />
             <Label layoutX="325.0" layoutY="88.0" text="Kreditvurdering" />
             <Label layoutX="201.0" layoutY="23.0" text="CPR" />
-            <Button fx:id="checkCPR" layoutX="450.0" layoutY="47.0" mnemonicParsing="false" prefWidth="143.0" text="Tjek CPR" />
+            <Button fx:id="checkCPR" layoutX="450.0" layoutY="47.0" mnemonicParsing="false" onAction="#InsertDataFromCPR" prefWidth="143.0" text="Tjek CPR" />
             <TextField fx:id="cprInput" layoutX="200.0" layoutY="47.0" prefWidth="230.0" />
             <TextField fx:id="interestInput" layoutX="200.0" layoutY="107.0" prefWidth="94.0" />
             <TextField fx:id="creditInput" layoutX="325.0" layoutY="107.0" prefWidth="105.0" />

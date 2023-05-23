@@ -111,6 +111,11 @@ public class CreateOfferController implements Initializable {
         });
 
     }
+    public void InsertDataFromCPR(ActionEvent event) {
+        double tester = com.ferrari.finances.dk.bank.InterestRate.i().todaysRate();
+        interestInput.setText(String.valueOf(tester));
+
+    }
     public void CreateOfferOnClick(ActionEvent event) {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         // Remove non-numeric characters from input strings
@@ -135,7 +140,8 @@ public class CreateOfferController implements Initializable {
         // Perform calculations
         double deposit = Double.parseDouble(depositText);
         double price = Double.parseDouble(carPriceText);
-        double total = ((price - deposit) / duration * (com.ferrari.finances.dk.bank.InterestRate.i().todaysRate() / 100 + 1));
+        double total = ((price - deposit) / duration *
+                (com.ferrari.finances.dk.bank.InterestRate.i().todaysRate() / 100 + 1));
 
         // Set total property of CreateOffer object
         CreateOffer.setTotal(total);
@@ -145,4 +151,5 @@ public class CreateOfferController implements Initializable {
 
         CreateOfferModel.setOfferInfo();
     }
+
 }
