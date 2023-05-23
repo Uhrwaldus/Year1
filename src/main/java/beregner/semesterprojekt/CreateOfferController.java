@@ -11,6 +11,7 @@ import java.math.RoundingMode;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 public class CreateOfferController implements Initializable {
@@ -111,15 +112,16 @@ public class CreateOfferController implements Initializable {
 
     }
     public void CreateOfferOnClick(ActionEvent event) {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         // Remove non-numeric characters from input strings
-        String interestText = interestInput.getText().replaceAll("[^\\d.]", "");
+        String interestText = interestInput.getText();
         String creditRatingText = creditInput.getText();
-        String depositText = depositInput.getText().replaceAll("[^\\d.]", "");
+        String depositText = depositInput.getText();
         int duration = (int) durationInput.getValue();  // Access the value directly as an int
-        String salesIDText = salesIDInput.getText().replaceAll("[^\\d]", "");
-        String custIDText = kundeIDinput.getText().replaceAll("[^\\d]", "");
-        String carIDText = carIDinput.getText().replaceAll("[^\\d]", "");
-        String carPriceText = carPriceInput.getText().replaceAll("[^\\d.]", "");
+        String salesIDText = salesIDInput.getText();
+        String custIDText = kundeIDinput.getText();
+        String carIDText = carIDinput.getText();
+        String carPriceText = carPriceInput.getText();
 
         // Set properties of CreateOffer object
         CreateOffer.setInterest(Double.parseDouble(interestText));
@@ -139,7 +141,7 @@ public class CreateOfferController implements Initializable {
         CreateOffer.setTotal(total);
 
         // Update result text component
-        result.setText(String.valueOf(total));
+        result.setText(decimalFormat.format(total));
 
         CreateOfferModel.setOfferInfo();
     }
