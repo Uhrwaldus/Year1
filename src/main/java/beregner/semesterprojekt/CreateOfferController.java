@@ -78,6 +78,7 @@ public class CreateOfferController implements Initializable {
 
         carBox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
+                //Sætter data basere på valg af bil i ChoiceBox
                 double price = CreateOfferModel.getCarPrice(newValue);
                 carPriceInput.setText(String.valueOf(price));
                 int id = CreateOfferModel.getCarID(newValue);
@@ -96,6 +97,7 @@ public class CreateOfferController implements Initializable {
 
         customerBox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
+                //Sætter data baseret på valg af kunde i ChoiceBoxen
                 String[] customerData = CreateOfferModel.getCustomerData(newValue);
                 kundeIDinput.setText(customerData[0]);
                 firstnameInput.setText(customerData[1]);
@@ -112,60 +114,61 @@ public class CreateOfferController implements Initializable {
             }
         });
     }
+
     public void InsertDataFromCPR(ActionEvent event) {
-        double tester = com.ferrari.finances.dk.bank.InterestRate.i().todaysRate();
-        interestInput.setText(String.valueOf(tester));
+        //Kalder rentesats API'en for at hente dagens rentesats
+        double rentesats = com.ferrari.finances.dk.bank.InterestRate.i().todaysRate();
+        interestInput.setText(String.valueOf(rentesats));
 
         String cpr = cprInput.getText();
-
+        // Kalder kreditvurderings API'en, for at generere kundes kreditvurdering
         Rating creditRating = FFL.src.com.ferrari.finances.dk.rki.CreditRator.i().rate(cpr);
         creditInput.setText(String.valueOf(creditRating));
 
     }
     public void CreateOfferOnClick(ActionEvent event) {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        // Remove non-numeric characters from input strings
+
         String interestText = interestInput.getText();
         String creditRatingText = creditInput.getText();
         String depositText = depositInput.getText();
-        int duration = (int) durationInput.getValue();  // Access the value directly as an int
+        int duration = (int) durationInput.getValue();
         String salesIDText = salesIDInput.getText();
         String custIDText = kundeIDinput.getText();
         String carIDText = carIDinput.getText();
         String carPriceText = carPriceInput.getText();
 
-        double fuck = 0.0; // Default value
+        double creditAddition = 0.0;
 
-        // Calculate the value for fuck based on creditRatingText
+        // Tilføj procenter baseret på kundes kreditvurdering, samt advarsel ved for lav kreditvurdering
         if (creditRatingText.equals("A")) {
-            fuck = 0.01;
+            creditAddition = 0.01;
         } else if (creditRatingText.equals("B")) {
-            fuck = 0.02;
+            creditAddition = 0.02;
         } else if (creditRatingText.equals("C")) {
-            fuck = 0.03;
+            creditAddition = 0.03;
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Kunden er i RKI");
             alert.setHeaderText("Stop finansieringen af kunden med det samme");
             alert.showAndWait();
-            return; // Exit the method if there is an error
+            return;
         }
-
-        double bitch = 0.0;
+        // Tilføj procenter baseret på lånets længde
+        double durationAddition = 0.0;
 
         if(duration >= 36) {
-            bitch = 0.01;
+            durationAddition = 0.01;
         }
 
+        // Udregning af lån
         double deposit = Double.parseDouble(depositText);
         double price = Double.parseDouble(carPriceText);
-        double loan_total = (price - deposit) * ((com.ferrari.finances.dk.bank.InterestRate.i().todaysRate() / 100) +
-                (1 + 0.02));
-        System.out.println(loan_total);
-        double total = (price - deposit) * ((com.ferrari.finances.dk.bank.InterestRate.i().todaysRate() / 100) +
-                (1 + fuck + bitch)) / 60;
 
-        // Set properties of CreateOffer object
+        double total = (price - deposit) * ((com.ferrari.finances.dk.bank.InterestRate.i().todaysRate() / 100) +
+                (1 + creditAddition + durationAddition)) / 60;
+
+        // Set værdier fra databasen
         CreateOffer.setInterest(Double.parseDouble(interestText));
         CreateOffer.setCredit_rating(creditRatingText);
         CreateOffer.setDeposit(Integer.parseInt(depositText));
@@ -175,7 +178,7 @@ public class CreateOfferController implements Initializable {
         CreateOffer.setcarID(Integer.parseInt(carIDText));
         CreateOffer.setTotal(total);
 
-        // Update result text component
+        // Opdater TextFields med udregningens resultat
         result.setText(decimalFormat.format(total));
 
         CreateOfferModel.setOfferInfo();

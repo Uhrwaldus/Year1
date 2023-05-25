@@ -77,6 +77,7 @@ public class CreateOfferModel {
 
     public static int getCarID(String id) throws SQLException {
         try {
+            //Henter carID baseret på bilens navn
             PreparedStatement SQLid = connection.prepareStatement("SELECT car_ID FROM car WHERE car_name = ?");
             SQLid.setString(1, id);
             ResultSet rs = SQLid.executeQuery();
@@ -141,7 +142,7 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
         try {
             PreparedStatement SQLoffer = connection.prepareStatement("INSERT INTO offer ( interest, " +
                     "credit_rating, deposit, duration, salesman_ID, customer_ID, car_ID, loan_total, date) VALUES " +
-                    "(?, ?, ?, ?, ?, ?, ?, ?, GETDATE())");
+                    "(?, ?, ?, ?, ?, ?, ?, ?, GETDATE())"); //GETDATE indsætter nuværende dato i databasen
 
             SQLoffer.setDouble(1, CreateOffer.getInterest());
             SQLoffer.setString(2, CreateOffer.getCredit_rating());
