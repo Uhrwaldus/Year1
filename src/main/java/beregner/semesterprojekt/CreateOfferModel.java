@@ -96,7 +96,7 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
         ObservableList<String> customers = FXCollections.observableArrayList();
         try {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT firstname, lastname, email, phonenumber, adress, city, " +
+            ResultSet rs = stmt.executeQuery("SELECT firstname, lastname, email, phonenumber, address, city, " +
                     "postcode, CPR FROM customer");
             while (rs.next()) {
                 String firstname = rs.getString("firstname");
@@ -114,7 +114,7 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
     public static String[] getCustomerData(String name) {
         try {
             PreparedStatement SQLCustInfo = connection.prepareStatement("SELECT customer_ID, firstname, lastname, email, phonenumber," +
-                    " adress, city, postcode, CPR FROM customer WHERE firstname = ?");
+                    " address, city, postcode, CPR FROM customer WHERE firstname = ?");
             SQLCustInfo.setString(1, name);
             ResultSet resultSet = SQLCustInfo.executeQuery();
 
@@ -124,7 +124,7 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
                 String lastname = resultSet.getString("lastname");
                 String email = resultSet.getString("email");
                 int phonenumber = resultSet.getInt("phonenumber");
-                String address = resultSet.getString("adress");
+                String address = resultSet.getString("address");
                 String city = resultSet.getString("city");
                 int postcode = resultSet.getInt("postcode");
                 int cpr = resultSet.getInt("CPR");

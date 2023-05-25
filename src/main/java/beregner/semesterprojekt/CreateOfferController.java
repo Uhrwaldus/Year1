@@ -1,22 +1,17 @@
 package beregner.semesterprojekt;
 
-
-import FFL.src.com.ferrari.finances.dk.rki.CreditRator;
 import FFL.src.com.ferrari.finances.dk.rki.Rating;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
-public class CreateOfferController implements Initializable {
+public class CreateOfferController implements Initializable, Runnable {
     private CreateOfferModel database;
 
     @FXML
@@ -109,23 +104,12 @@ public class CreateOfferController implements Initializable {
                 zipInput.setText(customerData[7]);
                 cprInput.setText(customerData[8]);
 
-                } catch (Exception e) {
+            } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         });
     }
 
-    public void InsertDataFromCPR(ActionEvent event) {
-        //Kalder rentesats API'en for at hente dagens rentesats
-        double rentesats = com.ferrari.finances.dk.bank.InterestRate.i().todaysRate();
-        interestInput.setText(String.valueOf(rentesats));
-
-        String cpr = cprInput.getText();
-        // Kalder kreditvurderings API'en, for at generere kundes kreditvurdering
-        Rating creditRating = FFL.src.com.ferrari.finances.dk.rki.CreditRator.i().rate(cpr);
-        creditInput.setText(String.valueOf(creditRating));
-
-    }
     public void CreateOfferOnClick(ActionEvent event) {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
@@ -157,7 +141,7 @@ public class CreateOfferController implements Initializable {
         // Tilføj procenter baseret på lånets længde
         double durationAddition = 0.0;
 
-        if(duration >= 36) {
+        if (duration >= 36) {
             durationAddition = 0.01;
         }
 
@@ -184,4 +168,19 @@ public class CreateOfferController implements Initializable {
         CreateOfferModel.setOfferInfo();
     }
 
+    @Override
+    public void run() {
+        double rentesats = com.ferrari.finances.dk.bank.InterestRate.i().todaysRate();
+        interestInput.setText(String.valueOf(rentesats));
+
+        String cpr = cprInput.getText();
+        // Kalder FFL, for at generere kundes kreditvurdering
+        Rating creditRating = FFL.src.com.ferrari.finances.dk.rki.CreditRator.i().rate(cpr);
+        creditInput.setText(String.valueOf(creditRating));
+    }
+
+    public void InsertDataFromCPR(ActionEvent event) {
+        Thread thread = new Thread(this);
+        thread.start();
+    }
 }
