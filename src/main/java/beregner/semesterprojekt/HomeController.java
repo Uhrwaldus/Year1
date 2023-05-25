@@ -29,10 +29,9 @@ public class HomeController implements Initializable {
     private ChoiceBox bilInput;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) 
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         // Connecter til databasen gennem HomeModel
-      
-        database = new HomeModel();
+        HomeModel database = new HomeModel();
         try {
             database.Connect();
         } catch (SQLException e) {
@@ -47,16 +46,9 @@ public class HomeController implements Initializable {
             throw new RuntimeException(e);
         }
 
-        // henter prisen tilhørende bilen fra choicebox
-        bilInput.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-            try {
-                double price = HomeModel.getPrice((String) newValue);
-                prisInput.setText(String.valueOf(price));
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        });
     }
+
+
 
     public void check(javafx.event.ActionEvent actionEvent) {
         //læser værdierne fra textfelterne og laver udregning
