@@ -226,12 +226,12 @@
     border-width: 1;
     -fx-border-radius: 0;
     border-radius: 0;
-    -fx-border-color: #26353a;
-    border-color: #26353a;
+    -fx-border-color: #515151;
+    border-color: #515151;
     -fx-background-radius: 0;
-    -fx-background-color: #37474f;
-    background-color: #37474f;
-    -fx-table-cell-border-color: #26353a;
+    -fx-background-color: #1D1D1D;
+    background-color: #1D1D1D;
+    -fx-table-cell-border-color: #B9B9B9;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0.0, 0.0);
 }
 .table-view:focused{
@@ -239,12 +239,12 @@
     border-width: 1;
     -fx-border-radius: 0;
     border-radius: 0;
-    -fx-border-color: #26353a;
-    border-color: #26353a;
+    -fx-border-color: #515151;
+    border-color: #515151;
     -fx-background-insets: 1;
     -fx-background-radius: 0;
-    -fx-background-color: #26353a;
-    background-color: #26353a;
+    -fx-background-color: #1D1D1D;
+    background-color: #1D1D1D;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0);
 }
 .table-view .column-header-background{
@@ -253,8 +253,8 @@
     -fx-border-color: #26353a;
     border-color: #26353a;
     -fx-background-radius: 0;
-    -fx-background-color: #26353a;
-    background-color: #26353a;
+    -fx-background-color: #515151;
+    background-color: #515151;
     -fx-text-fill: #F7F7F7;
 }
 .table-view .column-header {
@@ -264,33 +264,33 @@
     border-color: transparent;
 }
 .table-view .column-resize-line {
-    -fx-background-color: #26353a;
-    background-color: #26353a;
+    -fx-background-color: #B9B9B9;
+    background-color: #B9B9B9;
     -fx-pref-width: 1;
 }
 .table-row-cell{
-    -fx-background-color: #37474f;
-    background-color: #37474f;
+    -fx-background-color: #2D2D2D;
+    background-color: #2D2D2D;
     -fx-text-background-color: #F7F7F7;
     -fx-margin: 1;
     margin: 1;
 }
 .table-row-cell:hover {
-    -fx-background-color: #26353a;
-    background-color: #26353a;
+    -fx-background-color: #1D1D1D;
+    background-color: #1D1D1D;
     -fx-background-insets: 0;
     -fx-background-radius: 0;
 }
 .table-row-cell:selected {
-    -fx-table-cell-border-color: #26353a;
-    -fx-background-color: #26353a;
-    background-color: #26353a;
+    -fx-table-cell-border-color: #515151;
+    -fx-background-color: #515151;
+    background-color: #515151;
     -fx-background-insets: 0;
     -fx-background-radius: 0;
 }
 .table-row-cell:pressed {
-    -fx-background-color: #8AA8AE;
-    background-color: #8AA8AE;
+    -fx-background-color: #717171;
+    background-color: #717171;
     -fx-background-insets: 0;
     -fx-background-radius: 0;
 }
@@ -316,7 +316,7 @@
 
 .table-view .scroll-bar:horizontal .thumb,
 .table-view .scroll-bar:vertical .thumb {
-    -fx-background-color: #26353a;
+    -fx-background-color: #1D1D1D;
 	-fx-background-insets: 1, 1, 1, 1;
 	-fx-background-radius: 15;
 }

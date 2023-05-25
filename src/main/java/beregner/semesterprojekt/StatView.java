@@ -7,15 +7,16 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomeApplication extends Application {
-  
+public class StatView extends Application {
+
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("Home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("Statistics.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
-        stage.setTitle("Home");
+        stage.setTitle("Statistics");
         stage.setScene(scene);
         stage.show();
     }
+
 }

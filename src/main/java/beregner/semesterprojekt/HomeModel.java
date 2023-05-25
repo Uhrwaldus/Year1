@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
 
 public class HomeModel {
-    private Connection connection;
+    private static Connection connection;
     public boolean Connect() throws SQLException {
 
         String connectionString =
@@ -38,6 +38,7 @@ public class HomeModel {
     }
 
     public void getBiler(ChoiceBox choiceBox) throws SQLException {
+        // Opretter en Observable list med String objects, henter bilerne fra databasen og sætter dem ind i array
         ObservableList<String> names = FXCollections.observableArrayList();
         try {
             Statement stmt = connection.createStatement();
@@ -46,10 +47,31 @@ public class HomeModel {
                 String name = rs.getString("car_name");
                 names.add(name);
             }
+            // sætter items i choicebox til navne fra arrayet
             choiceBox.setItems(names);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
+
+    public static double getPrice(String bil) throws SQLException {
+        // Henter prisen fra det tilhørende navn på bilen i databasen
+        try {
+            PreparedStatement SQLpris = connection.prepareStatement("SELECT car_price FROM car WHERE car_name = ?");
+            SQLpris.setString(1, bil);
+            ResultSet rs = SQLpris.executeQuery();
+
+            if (rs.next()){
+                return rs.getDouble("car_price");
+            } else {
+                throw new SQLException("Der er ingen pris på " + bil);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
+
