@@ -171,7 +171,10 @@ public class CreateOfferController implements Initializable, Runnable {
     @Override
     public void run() {
         double rentesats = com.ferrari.finances.dk.bank.InterestRate.i().todaysRate();
-        interestInput.setText(String.valueOf(rentesats));
+        DecimalFormat decimalFormat = new DecimalFormat("#0.00");
+        String formattedRentesats = decimalFormat.format(rentesats);
+
+        interestInput.setText(String.valueOf(formattedRentesats));
 
         String cpr = cprInput.getText();
         // Kalder FFL, for at generere kundes kreditvurdering

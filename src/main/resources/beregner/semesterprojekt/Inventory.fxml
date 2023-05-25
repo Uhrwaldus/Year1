@@ -82,7 +82,7 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="45.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock" wrappingWidth="52.13671875">
+            <Text fill="WHITE" layoutX="45.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="På lager" wrappingWidth="52.13671875">
                <font>
                   <Font size="14.0" />
                </font>
