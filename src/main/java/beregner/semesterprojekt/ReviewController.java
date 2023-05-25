@@ -10,6 +10,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import static beregner.semesterprojekt.ReviewModel.acceptOffer;
+
 public class ReviewController implements Initializable {
 
     private ReviewModel database;
@@ -36,6 +38,27 @@ public class ReviewController implements Initializable {
                     duration, carName, carPrice, phone, custName);
         });
     }
+    public void acceptOfferOnClick(ActionEvent event) throws SQLException {
+        Integer offerID = (Integer) choiceBox.getValue();
+        if (offerID != null) {
+            try {
+                ReviewModel.acceptOffer(offerID, 2);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+    public void denyOfferOnClick(ActionEvent event) {
+        Integer offerID = (Integer) choiceBox.getValue();
+        if (offerID != null) {
+            try {
+                ReviewModel.denyOffer(offerID, 3);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 }
+
 
 

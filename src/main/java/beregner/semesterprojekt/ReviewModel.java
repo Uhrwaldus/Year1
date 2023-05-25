@@ -97,4 +97,28 @@ public class ReviewModel {
             e.printStackTrace();
         }
     }
+
+    public static void acceptOffer(int offerID, int status_ID) throws SQLException {
+        String query = "UPDATE offer SET status_ID = ? WHERE offer_ID = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setInt(1, 2);
+            stmt.setInt(2, offerID);
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void denyOffer(int offerID, int status_ID) throws  SQLException {
+        String query = "UPDATE offer SET status_ID = ? WHERE offer_ID = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setInt(1, 3);
+            stmt.setInt(2, offerID);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }
