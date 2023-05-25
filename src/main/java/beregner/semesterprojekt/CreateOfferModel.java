@@ -141,8 +141,8 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
     public static void setOfferInfo() {
         try {
             PreparedStatement SQLoffer = connection.prepareStatement("INSERT INTO offer ( interest, " +
-                    "credit_rating, deposit, duration, salesman_ID, customer_ID, car_ID, loan_total, date) VALUES " +
-                    "(?, ?, ?, ?, ?, ?, ?, ?, GETDATE())"); //GETDATE indsætter nuværende dato i databasen
+                    "credit_rating, deposit, duration, salesman_ID, customer_ID, car_ID, loan_total, status_ID, date) VALUES " +
+                    "(?, ?, ?, ?, ?, ?, ?, ?, ?, GETDATE())"); //GETDATE indsætter nuværende dato i databasen
 
             SQLoffer.setDouble(1, CreateOffer.getInterest());
             SQLoffer.setString(2, CreateOffer.getCredit_rating());
@@ -152,6 +152,7 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
             SQLoffer.setInt(6, CreateOffer.getCustID());
             SQLoffer.setInt(7, CreateOffer.getCarID());
             SQLoffer.setDouble(8, CreateOffer.getTotal());
+            SQLoffer.setInt(9, 1);
 
 
             SQLoffer.executeUpdate();
