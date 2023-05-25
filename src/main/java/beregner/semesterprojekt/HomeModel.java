@@ -54,6 +54,7 @@ public class HomeModel {
             e.printStackTrace();
         }
     }
+}
 
     public static double getPrice(String bil) throws SQLException {
         // Henter prisen fra det tilhørende navn på bilen i databasen
@@ -73,3 +74,4 @@ public class HomeModel {
         }
     }
 }
+
