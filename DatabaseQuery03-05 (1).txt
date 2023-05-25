@@ -47,6 +47,9 @@ CREATE TABLE [car] (
 	PRIMARY KEY (car_ID)
 	);
 
+INSERT INTO [car] VALUES ('Ferrari F40', '3500000', '3')
+INSERT INTO [car] VALUES ('Ferrari Spyder', '2800000', '7')
+
 
 --tilbudstabellen--
 CREATE TABLE [offer] (

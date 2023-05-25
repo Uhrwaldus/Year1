@@ -1,0 +1,59 @@
+}
+/*Vbox - menuen*/
+.menu-bar {
+    -fx-background-color: #1D1D1D;
+    background-color: #1D1D1D;
+}
+
+/* Button */
+.button{
+    -fx-background-radius: 3;
+    -fx-border-insets: 0 0 -1 0;
+    -fx-border-width: 1;
+    border-width: 1;
+    -fx-border-color: transparent;
+    border-color: transparent;
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-font-family: Aller;
+    -fx-font-weight: bold;
+    -fx-text-fill: #B9B9B9;
+    -fx-min-height: 30;
+    min-height: 35;
+    -fx-pref-height: 35;
+    -fx-effect: null;
+}
+.button:focused{
+    -fx-border-radius: 5;
+    -fx-border-color: #B9B9B9;
+    border-color: #B9B9B9;
+    -fx-background-color: #121212;
+    background-color: #121212;
+}
+.button:hover{
+    -fx-border-radius: 5;
+    -fx-border-color: #F7F7F7;
+    border-color: #F7F7F7;
+    -fx-background-color: #666666;
+    background-color: #666666;
+    -fx-cursor: HAND;
+    cursor: HAND;
+    -fx-effect: null;
+ }
+.button:pressed{
+    -fx-border-radius: 5;
+    -fx-border-color: #F7F7F7;
+    border-color: #F7F7F7;
+    -fx-background-color: #2D2D2D;
+    background-color: #2D2D2D;
+    -fx-cursor: HAND;
+    cursor: HAND;
+}
+#logud-button{
+    -fx-background-color: #AE3333;
+    background-color: #AE3333;
+    -fx-text-fill: #121212;
+    -fx-pref-height: 20;
+}
+
+
