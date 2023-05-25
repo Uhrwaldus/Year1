@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
+
     private HomeModel database;
     double udbetaling, indkomst, pris, udregning;
     double måneder;
@@ -28,9 +29,10 @@ public class HomeController implements Initializable {
     private ChoiceBox bilInput;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) 
         // Connecter til databasen gennem HomeModel
-        HomeModel database = new HomeModel();
+      
+        database = new HomeModel();
         try {
             database.Connect();
         } catch (SQLException e) {
