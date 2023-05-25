@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="400.0" minWidth="500.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #121212;" stylesheets="@stylesheetMain.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+          <Label layoutX="24.0" layoutY="24.0" text="Fornavn" />
+          <TextField fx:id="nameField" layoutX="24.0" layoutY="48.0" />
+          <TextField fx:id="lastnameField" layoutX="24.0" layoutY="108.0" />
+          <TextField fx:id="phoneField" layoutX="24.0" layoutY="168.0" />
+          <TextField fx:id="addressField" layoutX="24.0" layoutY="228.0" />
+          <TextField fx:id="cityField" layoutX="24.0" layoutY="288.0" />
+          <Label layoutX="24.0" layoutY="88.0" prefHeight="15.0" prefWidth="68.0" text="Efternavn" />
+          <Label layoutX="24.0" layoutY="148.0" prefHeight="15.0" prefWidth="113.0" text="Telefonnummer" />
+          <Label layoutX="24.0" layoutY="208.0" prefHeight="15.0" prefWidth="74.0" text="Adresse" />
+          <Label layoutX="24.0" layoutY="268.0" prefHeight="15.0" prefWidth="30.0" text="By" />
+          <TextField fx:id="zipField" layoutX="24.0" layoutY="348.0" />
+          <Label layoutX="24.0" layoutY="328.0" text="Postnummer" />
+          <Label layoutX="196.0" layoutY="88.0" prefHeight="15.0" prefWidth="85.0" text="Rentesats (%)" />
+          <Label layoutX="304.0" layoutY="87.0" text="Kreditvurdering" />
+          <Label layoutX="197.0" layoutY="23.0" text="CPR" />
+          <TextField fx:id="cprField" layoutX="196.0" layoutY="47.0" prefWidth="212.0" />
+          <TextField fx:id="interestField" layoutX="196.0" layoutY="107.0" prefWidth="94.0" />
+          <TextField fx:id="creditField" layoutX="304.0" layoutY="106.0" prefWidth="105.0" />
+          <TextField fx:id="salesIDField" layoutX="426.0" layoutY="46.0" prefWidth="150.0" />
+          <Label layoutX="426.0" layoutY="27.0" text="Sælger ID" />
+          <TextField fx:id="carPriceField" layoutX="426.0" layoutY="223.0" prefWidth="150.0" />
+          <Label layoutX="426.0" layoutY="203.0" prefHeight="15.0" prefWidth="44.0" text="Pris" />
+          <Label layoutX="425.0" layoutY="91.0" text="Bil" />
+          <Label layoutX="426.0" layoutY="145.0" text="Bil ID" />
+          <TextField fx:id="carIDField" layoutX="426.0" layoutY="166.0" />
+          <TextField fx:id="depositField" layoutX="195.0" layoutY="285.0" prefWidth="212.0" />
+          <TextField fx:id="emailField" layoutX="195.0" layoutY="166.0" prefWidth="212.0" />
+          <Label layoutX="195.0" layoutY="146.0" text="Email" />
+          <Label layoutX="195.0" layoutY="266.0" text="Udbetaling" />
+          <Label layoutX="430.0" layoutY="271.0" text="Afbetalings periode" />
+          <TextField fx:id="customerIDField" layoutX="197.0" layoutY="226.0" prefWidth="212.0" />
+          <Label layoutX="195.0" layoutY="205.0" text="Kunde ID" />
+          <TextField fx:id="monthlyPayField" layoutX="195.0" layoutY="348.0" />
+          <Label layoutX="194.0" layoutY="327.0" text="Månedlig afbetaling" />
+          <Button fx:id="exportButton" layoutX="437.0" layoutY="342.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="129.0" text="Eksporter til CSV" />
+      <TextField fx:id="durationField" layoutX="426.0" layoutY="291.0" />
+      <TextField fx:id="carField" layoutX="427.0" layoutY="109.0" />
+    </children>
+</AnchorPane>

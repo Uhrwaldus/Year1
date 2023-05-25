@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import com.ferrari.finances.dk.bank.InterestRate;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -64,6 +64,14 @@ public class OfferController implements Initializable {
             OfferModel.loadOffers();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void offerPopup(MouseEvent event) {
+            if (MouseEvent.getClickCount() == 2) {
+        Offers selectedItem = offerTabel.getSelectionModel().getSelectedItem();
+
+        OfferApplication.openPopup(selectedItem);
         }
     }
 }

@@ -4,16 +4,10 @@ import java.sql.Date;
 // Ulrikke
 
 public class Offers {
-    private int id;
+    private int id, interest, loan, deposit, duration, customerID, saleID, carID, carPrice, phone, monthlyPay;
     private Date date;
-    private int interest;
-    private String rating;
-    private int loan;
-    private int deposit;
-    private int duration;
-    private int customerID;
-    private int saleID;
-    private int carID;
+    private String name, lastname, email, address, city, zip, cpr, rating,credit;
+
 
     public int getId() {
         return id;
@@ -54,6 +48,28 @@ public class Offers {
     public int getCarID() {
         return carID;
     }
+
+    public String getName() {return name;}
+
+    public String getLastname() {return lastname;}
+
+    public String getEmail() {return email;}
+
+    public String getAddress() {return address;}
+
+    public String getCity() {return city;}
+
+    public String getZip() {return zip;}
+
+    public String getCpr() {return cpr;}
+
+    public String getCredit() {return credit;}
+
+    public int getCarPrice() {return carPrice;}
+
+    public int getPhone() {return phone;}
+
+    public int getMonthlyPay() {return monthlyPay;}
 
     public Offers(int column1, Date column2, int column3, String column4, int column5, int column6, int column7, int column8, int column9, int column10){
         this.id = column1;
