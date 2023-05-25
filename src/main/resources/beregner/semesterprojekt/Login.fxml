@@ -22,17 +22,17 @@
             <Label layoutX="99.0" layoutY="178.0" text="Password" />
               <Label id="header" layoutX="119.0" layoutY="67.0" text="Låneberegner ">
                   <font>
-                      <Font size="16.0" />
+                      <Font size="19.0" />
                   </font>
               </Label>
             <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="64.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@user.png" />
+                  <Image url="@../../Billeder/User.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="63.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@lock-icon-11.png" />
+                  <Image url="@../../Billeder/Password.png" />
                </image>
             </ImageView>
             <PasswordField fx:id="passwordField" layoutX="99.0" layoutY="202.0" />

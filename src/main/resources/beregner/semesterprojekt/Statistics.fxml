@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
@@ -65,12 +66,16 @@
             </opaqueInsets>
         </VBox>
         <Label id="header" fx:id="resultat" layoutX="439.0" layoutY="449.0" prefHeight="17.0" prefWidth="0.0" />
-        <ChoiceBox fx:id="Sælger" layoutX="152.0" layoutY="67.0" prefWidth="150.0" />
-      <Text fill="WHITE" layoutX="167.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find sælger" textAlignment="CENTER" wrappingWidth="120.0" />
-      <Text fill="WHITE" layoutX="151.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal biler solgte" />
-      <TextField fx:id="Biler" layoutX="151.0" layoutY="279.0" />
-      <TextField fx:id="Lån" layoutX="151.0" layoutY="337.0" />
-      <Text fill="WHITE" layoutX="151.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal lån udstedet" />
-      <Button layoutX="313.0" layoutY="64.0" mnemonicParsing="false" onAction="#showStats" text="Tryk" />
+      <Pane id="center-pane" layoutX="294.0" layoutY="144.0" prefHeight="253.0" prefWidth="291.0" stylesheets="@stylesheetMain.css">
+         <children>
+              <ChoiceBox fx:id="Sælger" layoutX="39.0" layoutY="54.0" prefWidth="150.0" />
+            <Text fill="WHITE" layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find sælger" wrappingWidth="120.0" />
+            <Button layoutX="209.0" layoutY="51.0" mnemonicParsing="false" onAction="#showStats" text="Tjek" />
+            <Text fill="WHITE" layoutX="39.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal biler solgte" />
+            <TextField fx:id="Biler" layoutX="39.0" layoutY="120.0" />
+            <TextField fx:id="Lån" layoutX="39.0" layoutY="178.0" />
+            <Text fill="WHITE" layoutX="39.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal lån udstedet" />
+         </children>
+      </Pane>
     </children>
 </AnchorPane>
