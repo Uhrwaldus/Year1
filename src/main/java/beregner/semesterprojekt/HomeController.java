@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
+
     private HomeModel database;
     double udbetaling, indkomst, pris, udregning;
     String bil;
@@ -30,6 +31,7 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        database = new HomeModel();
         try {
             database.Connect();
         } catch (SQLException e) {
