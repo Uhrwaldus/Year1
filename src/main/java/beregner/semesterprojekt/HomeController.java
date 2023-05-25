@@ -13,6 +13,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+
+
 public class HomeController implements Initializable {
 
     private HomeModel database;
@@ -27,6 +29,7 @@ public class HomeController implements Initializable {
     private Label resultat;
     @FXML
     private ChoiceBox bilInput;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
