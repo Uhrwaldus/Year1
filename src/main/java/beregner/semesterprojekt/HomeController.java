@@ -14,7 +14,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
-
 public class HomeController implements Initializable {
 
     private HomeModel database;
@@ -29,6 +28,7 @@ public class HomeController implements Initializable {
     private Label resultat;
     @FXML
     private ChoiceBox bilInput;
+
 
 
     @Override
@@ -50,6 +50,7 @@ public class HomeController implements Initializable {
         }
 
     }
+
 
 
 
