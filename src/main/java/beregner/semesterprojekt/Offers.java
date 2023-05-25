@@ -1,6 +1,7 @@
 package beregner.semesterprojekt;
 
 import java.sql.Date;
+// Ulrikke
 
 public class Offers {
     private int id;
