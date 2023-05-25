@@ -1,6 +1,8 @@
 import java.util.Random;
+
+import FFL.src.com.ferrari.finances.dk.rki.CreditRator;
 import com.ferrari.finances.dk.bank.InterestRate;
-import com.ferrari.finances.dk.rki.CreditRator;
+
 
 import com.ferrari.finances.dk.bank.InterestRate;
 
