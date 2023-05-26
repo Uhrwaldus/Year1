@@ -67,11 +67,13 @@ public class OfferController implements Initializable {
         }
     }
 
-    public void offerPopup(MouseEvent event) {
-            if (MouseEvent.getClickCount() == 2) {
-        Offers selectedItem = offerTabel.getSelectionModel().getSelectedItem();
-
-        OfferApplication.openPopup(selectedItem);
+    offerTabel.OnMouseClicked(event -> {
+        if (event.getClickCount() == 2) { // Double-click detected
+            Offers selectedOffer = tableView.getSelectionModel().getSelectedItem();
+            if (selectedOffer != null) {
+                OfferPopup popup = new OfferPopup();
+                popup.display(selectedOffer);
+            }
         }
-    }
+    });
 }
