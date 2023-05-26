@@ -6,12 +6,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
-public class CreateOfferController implements Initializable, Runnable {
+public class CreateOfferController extends Sidebar implements Initializable, Runnable {
     private CreateOfferModel database;
 
     @FXML
@@ -73,7 +74,7 @@ public class CreateOfferController implements Initializable, Runnable {
 
         carBox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
-                //Sætter data basere på valg af bil i ChoiceBox
+                //Sætter data baseret på valg af bil i ChoiceBox
                 double price = CreateOfferModel.getCarPrice(newValue);
                 carPriceInput.setText(String.valueOf(price));
                 int id = CreateOfferModel.getCarID(newValue);
@@ -186,4 +187,10 @@ public class CreateOfferController implements Initializable, Runnable {
         Thread thread = new Thread(this);
         thread.start();
     }
+    public void logud(ActionEvent event) throws IOException { logudButton(event); }
+    public void createKnap(ActionEvent event) throws IOException { createButton(event); }
+    public void offerKnap(ActionEvent event) throws IOException { offerButton(event); }
+    public void inventoryKnap(ActionEvent event) throws IOException { inventoryButton(event); }
+    public void statsKnap(ActionEvent event) throws IOException { statsButton(event); }
+    public void customerKnap(ActionEvent event) throws IOException { customerButton(event); }
 }

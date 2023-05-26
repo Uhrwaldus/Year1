@@ -52,15 +52,15 @@ public class LoginController implements Initializable {
 
         //Hvis brugeren ikke findes, gives der ikke en userType, og der fejlmeldes
         if (userTypeID == -1) {
-            errorLabel.setText("Invalid username or password.");
+            errorLabel.setText("Forkert bruger ID eller password");
         } else {
             //Switch-case som sender programmet til den næste scene baseret på userType
             switch (userTypeID) {
                 case 1: //Skift fxml-filerne ud med de korrekte :)
-                    loadFXML("test.fxml", (Stage) ((Node) event.getSource()).getScene().getWindow(), event);
+                    loadFXML("Home.fxml", (Stage) ((Node) event.getSource()).getScene().getWindow(), event);
                     break;
                 case 2:
-                    loadFXML("test2.fxml", (Stage) ((Node) event.getSource()).getScene().getWindow(), event);
+                    loadFXML("Review.fxml", (Stage) ((Node) event.getSource()).getScene().getWindow(), event);
                     break;
             }
         }

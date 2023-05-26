@@ -9,11 +9,12 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import com.ferrari.finances.dk.bank.InterestRate;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class HomeController implements Initializable {
+public class HomeController extends Sidebar implements Initializable {
     private HomeModel database;
     double udbetaling, indkomst, pris, udregning;
     double måneder;
@@ -46,9 +47,6 @@ public class HomeController implements Initializable {
         }
 
     }
-
-
-
     public void check(javafx.event.ActionEvent actionEvent) {
         //læser værdierne fra textfelterne og laver udregning
         udbetaling = Double.parseDouble(udbetalingInput.getText());
@@ -61,5 +59,10 @@ public class HomeController implements Initializable {
 
         System.out.println( InterestRate.i().todaysRate());
     }
-
+    public void logud(ActionEvent event) throws IOException { logudButton(event); }
+    public void createKnap(ActionEvent event) throws IOException { createButton(event); }
+    public void offerKnap(ActionEvent event) throws IOException { offerButton(event); }
+    public void inventoryKnap(ActionEvent event) throws IOException { inventoryButton(event); }
+    public void statsKnap(ActionEvent event) throws IOException { statsButton(event); }
+    public void customerKnap(ActionEvent event) throws IOException { customerButton(event); }
 }

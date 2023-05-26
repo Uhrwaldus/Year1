@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="540.0" minWidth="800.0" prefHeight="540.0" prefWidth="800.0" style="-fx-background-color: #121212;" stylesheets="@stylesheetMain.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="beregner.semesterprojekt.StatController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="580.0" minWidth="800.0" prefHeight="580.0" prefWidth="800.0" style="-fx-background-color: #121212;" stylesheets="@stylesheetMain.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="beregner.semesterprojekt.StatController">
     <children>
-        <VBox focusTraversable="true" prefHeight="540.0" prefWidth="120.0" style="-fx-background-color: #1d1d1d;" stylesheets="@sidebar.css">
+        <VBox focusTraversable="true" prefHeight="580.0" prefWidth="120.0" style="-fx-background-color: #1d1d1d;" stylesheets="@sidebar.css">
             <children>
-                <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" text="Opret tilbud">
+                <Button fx:id="createKnap" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createKnap" prefHeight="40.0" prefWidth="105.0" text="Opret tilbud">
                     <VBox.margin>
                         <Insets bottom="7.0" left="7.0" top="7.0" />
                     </VBox.margin>
@@ -22,7 +22,7 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="105.0" text="Se tilbud">
+                <Button fx:id="offerKnap" mnemonicParsing="false" onAction="#offerKnap" prefHeight="45.0" prefWidth="105.0" text="Se tilbud">
                     <VBox.margin>
                         <Insets bottom="7.0" left="7.0" />
                     </VBox.margin>
@@ -30,7 +30,7 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="105.0" text="Inventar">
+                <Button fx:id="inventoryKnap" mnemonicParsing="false" onAction="#inventoryKnap" prefHeight="45.0" prefWidth="105.0" text="Inventar">
                     <VBox.margin>
                         <Insets bottom="7.0" left="7.0" />
                     </VBox.margin>
@@ -38,7 +38,7 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="105.0" text="Statistik">
+                <Button fx:id="statsKnap" mnemonicParsing="false" onAction="#statsKnap" prefHeight="45.0" prefWidth="105.0" text="Statistik">
                     <VBox.margin>
                         <Insets bottom="7.0" left="7.0" />
                     </VBox.margin>
@@ -46,7 +46,7 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="105.0" text="Se kunder">
+                <Button fx:id="customerKnap" mnemonicParsing="false" onAction="#customerKnap" prefHeight="45.0" prefWidth="105.0" text="Se kunder">
                     <VBox.margin>
                         <Insets bottom="10.0" left="7.0" />
                     </VBox.margin>
@@ -55,7 +55,7 @@
                     </opaqueInsets>
                 </Button>
                 <AnchorPane prefHeight="246.0" prefWidth="120.0" VBox.vgrow="ALWAYS" />
-                <Button id="logud-button" mnemonicParsing="false" prefWidth="105.0" text="Logud">
+                <Button id="logud-button" fx:id="logudKnap" mnemonicParsing="false" onAction="#logud" prefWidth="105.0" text="Logud">
                     <VBox.margin>
                         <Insets bottom="7.0" left="7.0" />
                     </VBox.margin>

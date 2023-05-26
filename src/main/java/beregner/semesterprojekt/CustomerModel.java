@@ -60,7 +60,7 @@ public class CustomerModel {
                         results.getString("lastname"),
                         results.getString("email"),
                         results.getInt("phonenumber"),
-                        results.getString("adress"),
+                        results.getString("address"),
                         results.getString("city"),
                         results.getInt("postcode"),
                         results.getString("cpr")
@@ -79,7 +79,7 @@ public class CustomerModel {
         // sæt værdierne fra Opret ind i databasen
         try {
             PreparedStatement SQLopret = connection.prepareStatement(
-                    "INSERT INTO customer (firstname, lastname, email, phonenumber, adress, city, postcode, CPR) " +
+                    "INSERT INTO customer (firstname, lastname, email, phonenumber, address, city, postcode, CPR) " +
                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             SQLopret.setString(1,Opret.getNavn());
             SQLopret.setString(2,Opret.getEfternavn());

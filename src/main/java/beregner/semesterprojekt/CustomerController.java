@@ -7,12 +7,13 @@ import javafx.scene.control.*;
 import com.ferrari.finances.dk.bank.InterestRate;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 // Ulrikke
-public class CustomerController implements Initializable {
+public class CustomerController extends Sidebar implements Initializable {
     @FXML
     private TableView<Kunder> kundeTabel;
     @FXML
@@ -114,4 +115,10 @@ public class CustomerController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+    public void logud(ActionEvent event) throws IOException { logudButton(event); }
+    public void createKnap(ActionEvent event) throws IOException { createButton(event); }
+    public void offerKnap(ActionEvent event) throws IOException { offerButton(event); }
+    public void inventoryKnap(ActionEvent event) throws IOException { inventoryButton(event); }
+    public void statsKnap(ActionEvent event) throws IOException { statsButton(event); }
+    public void customerKnap(ActionEvent event) throws IOException { customerButton(event); }
 }

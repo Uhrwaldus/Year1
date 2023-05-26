@@ -6,13 +6,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class StatController implements Initializable {
+public class StatController extends Sidebar implements Initializable {
     private StatModel database;
 
     @FXML
@@ -51,8 +52,12 @@ public class StatController implements Initializable {
             Lån.setText(String.valueOf(loansGiven));
         }
     }
-
-    
+    public void logud(ActionEvent event) throws IOException { logudButton(event); }
+    public void createKnap(ActionEvent event) throws IOException { createButton(event); }
+    public void offerKnap(ActionEvent event) throws IOException { offerButton(event); }
+    public void inventoryKnap(ActionEvent event) throws IOException { inventoryButton(event); }
+    public void statsKnap(ActionEvent event) throws IOException { statsButton(event); }
+    public void customerKnap(ActionEvent event) throws IOException { customerButton(event); }
 }
 
 

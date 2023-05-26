@@ -1,15 +1,17 @@
 package beregner.semesterprojekt;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
 
-public class InventoryController implements Initializable {
+public class InventoryController extends Sidebar implements Initializable {
     private InventoryView app;
     private InventoryModel database;
 
@@ -76,7 +78,11 @@ public class InventoryController implements Initializable {
         updateCarInfo("Ferrari Portofino");
     }
 
-
-
+    public void logud(ActionEvent event) throws IOException { logudButton(event); }
+    public void createKnap(ActionEvent event) throws IOException { createButton(event); }
+    public void offerKnap(ActionEvent event) throws IOException { offerButton(event); }
+    public void inventoryKnap(ActionEvent event) throws IOException { inventoryButton(event); }
+    public void statsKnap(ActionEvent event) throws IOException { statsButton(event); }
+    public void customerKnap(ActionEvent event) throws IOException { customerButton(event); }
 
 }
