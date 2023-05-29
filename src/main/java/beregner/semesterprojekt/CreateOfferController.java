@@ -151,9 +151,10 @@ public class CreateOfferController extends Sidebar implements Initializable, Run
         double price = Double.parseDouble(carPriceText);
 
         double total = (price - deposit) * ((com.ferrari.finances.dk.bank.InterestRate.i().todaysRate() / 100) +
-                (1 + creditAddition + durationAddition)) / 60;
+                (1 + creditAddition + durationAddition)) / duration;
 
         // Set værdier fra databasen
+        interestText = interestText.replace(",", ".");
         CreateOffer.setInterest(Double.parseDouble(interestText));
         CreateOffer.setCredit_rating(creditRatingText);
         CreateOffer.setDeposit(Integer.parseInt(depositText));
@@ -164,8 +165,8 @@ public class CreateOfferController extends Sidebar implements Initializable, Run
         CreateOffer.setTotal(total);
 
         // Opdater TextFields med udregningens resultat
-        result.setText(decimalFormat.format(total));
 
+        result.setText(decimalFormat.format(total));
         CreateOfferModel.setOfferInfo();
     }
 
