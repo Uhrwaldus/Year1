@@ -1,12 +1,11 @@
 package beregner.semesterprojekt;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import com.ferrari.finances.dk.bank.InterestRate;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -64,6 +63,38 @@ public class OfferController implements Initializable {
             OfferModel.loadOffers();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    private void handleExportButton() {
+        // hent den valgte række fra tabellen
+        Offers selectedOffer = offerTabel.getSelectionModel().getSelectedItem();
+        if (selectedOffer == null) {
+            return;
+        }
+
+        StringBuilder csvData = new StringBuilder();
+
+        csvData.append("ID,Dato,Rente,Kredit_vurdering,Lån,Udbetaling,Periode,KundeID,SælgerID,BilID\n");
+
+
+        csvData.append(selectedOffer.getId()).append(",")
+                .append(selectedOffer.getDate()).append(",")
+                .append(selectedOffer.getInterest()).append(",")
+                .append(selectedOffer.getRating()).append(",")
+                .append(selectedOffer.getLoan()).append(",")
+                .append(selectedOffer.getDeposit()).append(",")
+                .append(selectedOffer.getDuration()).append(",")
+                .append(selectedOffer.getCustomerID()).append(",")
+                .append(selectedOffer.getSaleID()).append(",")
+                .append(selectedOffer.getCarID()).append("\n");
+
+        try (FileWriter fileWriter = new FileWriter("Eksporteret_tilbud.csv")) {
+            fileWriter.append(csvData);
+            fileWriter.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

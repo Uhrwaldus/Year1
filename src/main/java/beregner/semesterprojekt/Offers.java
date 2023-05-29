@@ -4,16 +4,9 @@ import java.sql.Date;
 // Ulrikke
 
 public class Offers {
-    private int id;
+    private int id, interest, loan, deposit, duration, customerID, saleID, carID;
     private Date date;
-    private int interest;
     private String rating;
-    private int loan;
-    private int deposit;
-    private int duration;
-    private int customerID;
-    private int saleID;
-    private int carID;
 
     public int getId() {
         return id;

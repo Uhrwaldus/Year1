@@ -1,10 +1,9 @@
 package beregner.semesterprojekt;
 
 import java.sql.*;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.ChoiceBox;
+
 // Ulrikke
 
 public class OfferModel {

@@ -76,5 +76,6 @@
             <TableColumn fx:id="column10" prefWidth="41.0" text="Bil ID" />
         </columns>
       </TableView>
+      <Button fx:id="exportButton" layoutX="405.0" layoutY="484.0" mnemonicParsing="false" onAction="#handleExportButton" text="Eksporter tilbud" />
     </children>
 </AnchorPane>
