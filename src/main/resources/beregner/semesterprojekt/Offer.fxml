@@ -62,7 +62,7 @@
                 <Insets />
             </opaqueInsets>
         </VBox>
-      <TableView fx:id="offerTabel" layoutX="125.0" layoutY="54.0" onMouseClicked="#offerPopup" prefHeight="412.0" prefWidth="669.0" stylesheets="@stylesheetMain.css">
+      <TableView fx:id="offerTabel" layoutX="125.0" layoutY="54.0" prefHeight="412.0" prefWidth="669.0" stylesheets="@stylesheetMain.css">
         <columns>
           <TableColumn fx:id="column1" prefWidth="33.0" text="ID" />
           <TableColumn fx:id="column2" prefWidth="77.0" text="Dato" />

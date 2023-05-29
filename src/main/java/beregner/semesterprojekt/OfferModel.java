@@ -78,15 +78,4 @@ public class OfferModel {
     public static ObservableList<Offers> getDataList(){
         return dataList;
     }
-
-    public OfferModel getCustomerData(Offers selectedItem) throws SQLException {
-        String getData = "SELLECT * FROM customer WHERE id = ?";
-        try (PreparedStatement statement = connection.prepareStatement(getData)) {
-            statement.setInt(1,selectedItem.getId());
-            ResultSet rs = statement.executeQuery();
-            if (rs.next()) {
-                String name = rs.getString("firstname");
-            }
-        }
-    }
 }
