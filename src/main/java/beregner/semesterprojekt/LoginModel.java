@@ -7,7 +7,6 @@ public class LoginModel {
     private Connection connection;
     private LoginModel database;
 
-    //LoginModel loginModel = new LoginModel();
 
     public boolean Connect() throws SQLException {
 
@@ -33,6 +32,13 @@ public class LoginModel {
             return false;
         }
 
+    }
+    public LoginModel() {
+        try {
+            Connect();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
     //Validerer brugeren baseret på deres inputs
     public int validateUser(String salesman_ID, String password) {

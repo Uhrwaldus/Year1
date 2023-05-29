@@ -40,6 +40,7 @@ public class LoginController implements Initializable {
     @FXML private PasswordField passwordField;
     @FXML private Label errorLabel;
     private LoginModel model;
+    private Stage stage;
 
     public LoginController() {
         model = new LoginModel();
@@ -64,6 +65,9 @@ public class LoginController implements Initializable {
                     break;
             }
         }
+    }
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
     //Loader den kommende scene
     private void loadFXML(String fxmlName, Stage stage, ActionEvent event) throws IOException {
