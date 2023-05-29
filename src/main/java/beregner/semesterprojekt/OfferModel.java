@@ -79,25 +79,14 @@ public class OfferModel {
         return dataList;
     }
 
-    public OfferModel getOfferData(Offers selectedItem) throws SQLException {
-        String getData = "SELECT * FROM offer WHERE id = ?";
+    public OfferModel getCustomerData(Offers selectedItem) throws SQLException {
+        String getData = "SELLECT * FROM customer WHERE id = ?";
         try (PreparedStatement statement = connection.prepareStatement(getData)) {
             statement.setInt(1,selectedItem.getId());
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                Date date = rs.getDate("datetime");
-                int interest = rs.getInt("interest");
-                String credit = rs.getString("credit_rating");
-                int loan = rs.getInt("loan_total");
-                int deposit = rs.getInt("deposit");
-                int duration = rs.getInt("duration");
-                int customerID = rs.getInt("customer_ID");
-                int saleID = rs.getInt("salesman_ID");
-                int carID = rs.getInt("car_ID");
-
-                return new OfferModel();
+                String name = rs.getString("firstname");
             }
         }
-        return null;
     }
 }

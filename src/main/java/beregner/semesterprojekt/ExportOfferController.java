@@ -14,6 +14,11 @@ public class ExportOfferController {
     @FXML
     private Button exportButton;
 
+    private Offers selectedItem;
+
+    public void setSelectedItem(Offers selectedItem) {
+        this.selectedItem = selectedItem;
+    }
 
     public void loadData(Offers offer) {
         // sætter data ind fra Offers i de rigtige felter

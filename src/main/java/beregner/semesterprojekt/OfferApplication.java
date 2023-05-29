@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 
 import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class OfferApplication extends Application {
     @Override
@@ -32,7 +31,7 @@ public class OfferApplication extends Application {
             controller.setSelectedItem(selectedItem);
 
             OfferModel database = new OfferModel();
-            Offers offer = database.getOfferData(selectedItem);
+            Offers offer = database.getDataForItem(selectedItem);
             controller.loadData(offer);
 
             Stage stage = new Stage();
@@ -41,8 +40,6 @@ public class OfferApplication extends Application {
             stage.showAndWait();
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
