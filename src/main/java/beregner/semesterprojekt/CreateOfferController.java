@@ -16,45 +16,47 @@ public class CreateOfferController extends Sidebar implements Initializable, Run
     private CreateOfferModel database;
 
     @FXML
-    private TextField firstnameInput;
+    TextField firstnameInput;
     @FXML
-    private TextField lastnameInput;
+    TextField lastnameInput;
     @FXML
-    private TextField emailInput;
+    TextField emailInput;
     @FXML
-    private TextField addressInput;
+    TextField addressInput;
     @FXML
-    private TextField cityInput;
+    TextField cityInput;
     @FXML
-    private TextField zipInput;
+    TextField zipInput;
     @FXML
-    private TextField cprInput;
+    TextField cprInput;
     @FXML
-    private TextField interestInput;
+    TextField interestInput;
     @FXML
-    private TextField creditInput;
+    TextField creditInput;
     @FXML
-    private TextField depositInput;
+    TextField depositInput;
     @FXML
-    private TextField carPriceInput;
+    TextField carPriceInput;
     @FXML
-    private TextField phoneInput;
+    TextField phoneInput;
     @FXML
-    private TextField salesIDInput;
+    TextField salesIDInput;
     @FXML
-    private TextField kundeIDinput;
+    TextField kundeIDinput;
     @FXML
-    private TextField carIDinput;
+    TextField carIDinput;
     @FXML
-    private TextField result;
+    TextField result;
     @FXML
     private Button createOfferOnClick;
     @FXML
-    private Slider durationInput;
+    Button checkCPR;
     @FXML
-    private ChoiceBox<String> customerBox;
+    Slider durationInput;
     @FXML
-    private ChoiceBox<String> carBox;
+    ChoiceBox<String> customerBox;
+    @FXML
+    ChoiceBox<String> carBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
