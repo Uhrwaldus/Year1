@@ -1,5 +1,6 @@
 package beregner.semesterprojekt;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -12,7 +13,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 // Ulrikke
 
-public class OfferController implements Initializable {
+public class OfferController extends Sidebar implements Initializable {
     @FXML
     private TableView<Offers> offerTabel;
     @FXML
@@ -97,4 +98,10 @@ public class OfferController implements Initializable {
             e.printStackTrace();
         }
     }
+    public void logud(ActionEvent event) throws IOException { logudButton(event); }
+    public void createKnap(ActionEvent event) throws IOException { createButton(event); }
+    public void offerKnap(ActionEvent event) throws IOException { offerButton(event); }
+    public void inventoryKnap(ActionEvent event) throws IOException { inventoryButton(event); }
+    public void statsKnap(ActionEvent event) throws IOException { statsButton(event); }
+    public void customerKnap(ActionEvent event) throws IOException { customerButton(event); }
 }
