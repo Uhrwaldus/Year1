@@ -11,7 +11,7 @@
     <children>
         <VBox focusTraversable="true" prefHeight="540.0" prefWidth="120.0" style="-fx-background-color: #1d1d1d;" stylesheets="@sidebar.css">
             <children>
-                <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" text="Opret tilbud">
+                <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#createKnap" prefHeight="40.0" prefWidth="105.0" text="Opret tilbud">
                     <VBox.margin>
                         <Insets bottom="7.0" left="7.0" top="7.0" />
                     </VBox.margin>
@@ -19,7 +19,7 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="105.0" text="Se tilbud">
+                <Button mnemonicParsing="false" onAction="#offerKnap" prefHeight="45.0" prefWidth="105.0" text="Se tilbud">
                     <VBox.margin>
                         <Insets bottom="7.0" left="7.0" />
                     </VBox.margin>
@@ -27,7 +27,7 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="105.0" text="Inventar">
+                <Button mnemonicParsing="false" onAction="#inventoryKnap" prefHeight="45.0" prefWidth="105.0" text="Inventar">
                     <VBox.margin>
                         <Insets bottom="7.0" left="7.0" />
                     </VBox.margin>
@@ -35,7 +35,7 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="105.0" text="Statistik">
+                <Button mnemonicParsing="false" onAction="#statsKnap" prefHeight="45.0" prefWidth="105.0" text="Statistik">
                     <VBox.margin>
                         <Insets bottom="7.0" left="7.0" />
                     </VBox.margin>
@@ -43,7 +43,7 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="105.0" text="Se kunder">
+                <Button mnemonicParsing="false" onAction="#customerKnap" prefHeight="45.0" prefWidth="105.0" text="Se kunder">
                     <VBox.margin>
                         <Insets bottom="10.0" left="7.0" />
                     </VBox.margin>
@@ -52,7 +52,7 @@
                     </opaqueInsets>
                 </Button>
                 <AnchorPane prefHeight="246.0" prefWidth="120.0" VBox.vgrow="ALWAYS" />
-                <Button id="logud-button" mnemonicParsing="false" prefWidth="105.0" text="Logud">
+                <Button id="logud-button" mnemonicParsing="false" onAction="#logud" prefWidth="105.0" text="Logud">
                     <VBox.margin>
                         <Insets bottom="7.0" left="7.0" />
                     </VBox.margin>
