@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane minHeight="580.0" minWidth="800.0" prefHeight="580.0" prefWidth="800.0" style="-fx-background-color: #121212;" stylesheets="@stylesheetMain.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="beregner.semesterprojekt.CustomerController">
+    <VBox focusTraversable="true" prefHeight="580.0" prefWidth="120.0" style="-fx-background-color: #1d1d1d;" stylesheets="@sidebar.css">
+        <Button fx:id="createKnap" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createKnap" prefHeight="40.0" prefWidth="105.0" text="Opret tilbud">
+            <VBox.margin>
+                <Insets bottom="7.0" left="7.0" top="7.0" />
+            </VBox.margin>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </Button>
+        <Button fx:id="offerKnap" mnemonicParsing="false" onAction="#offerKnap" prefHeight="45.0" prefWidth="105.0" text="Se tilbud">
+            <VBox.margin>
+                <Insets bottom="7.0" left="7.0" />
+            </VBox.margin>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </Button>
+        <Button fx:id="inventoryKnap" mnemonicParsing="false" onAction="#inventoryKnap" prefHeight="45.0" prefWidth="105.0" text="Inventar">
+            <VBox.margin>
+                <Insets bottom="7.0" left="7.0" />
+            </VBox.margin>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </Button>
+        <Button fx:id="statsKnap" mnemonicParsing="false" onAction="#statsKnap" prefHeight="45.0" prefWidth="105.0" text="Statistik">
+            <VBox.margin>
+                <Insets bottom="7.0" left="7.0" />
+            </VBox.margin>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </Button>
+        <Button fx:id="customerKnap" mnemonicParsing="false" onAction="#customerKnap" prefHeight="45.0" prefWidth="105.0" text="Se kunder">
+            <VBox.margin>
+                <Insets bottom="10.0" left="7.0" />
+            </VBox.margin>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </Button>
+        <AnchorPane prefHeight="246.0" prefWidth="120.0" VBox.vgrow="ALWAYS" />
+        <Button id="logud-button" fx:id="logudKnap" mnemonicParsing="false" onAction="#logud" prefWidth="105.0" text="Logud">
+            <VBox.margin>
+                <Insets bottom="7.0" left="7.0" />
+            </VBox.margin>
+        </Button>
+    </VBox>
+    <HBox layoutX="137.0" layoutY="393.0" prefHeight="30.0" prefWidth="685.0">
+        <Label id="header" alignment="CENTER" prefHeight="28.0" prefWidth="111.0" text="Opret bruger" />
+    </HBox>
+    <HBox layoutX="134.0" layoutY="429.0" prefHeight="40.0" prefWidth="685.0">
+        <TextField fx:id="navnField" prefHeight="40.0" prefWidth="150.0" promptText="Fornavn" />
+        <TextField fx:id="efternavnField" prefHeight="40.0" prefWidth="190.0" promptText="Efternavn">
+            <HBox.margin>
+                <Insets left="5.0" />
+            </HBox.margin>
+        </TextField>
+        <TextField fx:id="tlfnrField" prefHeight="40.0" prefWidth="107.0" promptText="Telefonnummer">
+            <HBox.margin>
+                <Insets left="5.0" />
+            </HBox.margin>
+        </TextField>
+      <TextField fx:id="emailField" prefWidth="195.0" promptText="Email">
+         <HBox.margin>
+            <Insets left="5.0" />
+         </HBox.margin>
+      </TextField>
+    </HBox>
+    <HBox layoutX="134.0" layoutY="469.0" prefHeight="35.0" prefWidth="667.0">
+        <TextField fx:id="addresseField" prefHeight="40.0" prefWidth="244.0" promptText="Adresse">
+            <HBox.margin>
+                <Insets right="2.5" />
+            </HBox.margin>
+        </TextField>
+        <TextField fx:id="postnrField" prefHeight="40.0" prefWidth="88.0" promptText="Postnummer">
+            <HBox.margin>
+                <Insets left="2.5" right="2.5" />
+            </HBox.margin>
+        </TextField>
+      <TextField fx:id="byField" promptText="By">
+         <HBox.margin>
+            <Insets left="2.5" />
+         </HBox.margin>
+      </TextField>
+      <TextField fx:id="cprnrField" prefWidth="158.0" promptText="CPR nr.">
+         <HBox.margin>
+            <Insets left="5.0" />
+         </HBox.margin>
+      </TextField>
+    </HBox>
+    <TableView fx:id="kundeTabel" layoutX="156.0" layoutY="41.0" prefHeight="340.0" prefWidth="617.0" stylesheets="@stylesheetMain.css">
+      <columns>
+          <TableColumn fx:id="column1" prefWidth="30.0" text="ID" />
+          <TableColumn fx:id="column2" prefWidth="75.0" text="Navn" />
+          <TableColumn fx:id="column3" prefWidth="75.0" text="Efternavn" />
+          <TableColumn fx:id="column4" prefWidth="119.0" text="E-mail" />
+          <TableColumn fx:id="column5" prefWidth="87.0" text="Tlf. nr." />
+          <TableColumn fx:id="column6" prefWidth="114.0" text="Adresse" />
+          <TableColumn fx:id="column7" prefWidth="58.0" text="By" />
+          <TableColumn fx:id="column8" minWidth="2.0" prefWidth="57.0" text="Post nr." />
+         <TableColumn fx:id="column9" minWidth="2.0" prefWidth="57.0" text="CPR nr" />
+      </columns>
+    </TableView>
+     <Button fx:id="opretButton" alignment="CENTER" layoutX="430.0" layoutY="524.0" mnemonicParsing="false" onAction="#opretButtonAction" prefHeight="39.0" prefWidth="67.0" style="-fx-background-color: #666666;" text="Opret" />
+</AnchorPane>
