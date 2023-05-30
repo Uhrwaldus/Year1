@@ -5,10 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class CreateOfferControllerTest extends ApplicationTest {
 
