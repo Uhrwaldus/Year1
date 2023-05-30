@@ -24,7 +24,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import static beregner.semesterprojekt.ReviewModel.acceptOffer;
-
+// Jonas
 public class ReviewController extends Sidebar implements Initializable {
 
     private ReviewModel database;
@@ -57,6 +57,7 @@ public class ReviewController extends Sidebar implements Initializable {
     public void acceptOfferOnClick(ActionEvent event) throws SQLException {
         Integer offerID = (Integer) choiceBox.getValue();
         if (offerID != null) {
+            //Sætter status_ID til 2, da den dermed står som godkendt i databasen
             try {
                 ReviewModel.acceptOffer(offerID, 2);
             } catch (SQLException e) {
@@ -79,6 +80,7 @@ public class ReviewController extends Sidebar implements Initializable {
     public void denyOfferOnClick(ActionEvent event) {
         Integer offerID = (Integer) choiceBox.getValue();
         if (offerID != null) {
+            //Sætter status_ID til 3, da den dermed står som afvist i databasen
             try {
                 ReviewModel.denyOffer(offerID, 3);
             } catch (Exception e) {

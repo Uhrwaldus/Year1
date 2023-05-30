@@ -10,6 +10,15 @@ import org.testfx.framework.junit5.ApplicationTest;
 
 import static org.testng.AssertJUnit.assertEquals;
 
+
+/* Jonas
+    Det er værd at nævne, at denne testklasse fungerede som forventen 29/05 kl. 17:29 da jeg pushede mit commit.
+    Morgenen efter, 30/05 kl. 10:03 gives der nu fejlkoden:
+    SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+    SLF4J: Defaulting to no-operation (NOP) logger implementation
+    SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+*/
+
 public class CreateOfferControllerTest extends ApplicationTest {
 
     private CreateOfferController controller;

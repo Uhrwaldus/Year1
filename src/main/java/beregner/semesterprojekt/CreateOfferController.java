@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
+// Jonas
 public class CreateOfferController extends Sidebar implements Initializable, Runnable {
     private CreateOfferModel database;
 
@@ -47,8 +48,6 @@ public class CreateOfferController extends Sidebar implements Initializable, Run
     TextField carIDinput;
     @FXML
     TextField result;
-    @FXML
-    private Button createOfferOnClick;
     @FXML
     Button checkCPR;
     @FXML
@@ -182,6 +181,7 @@ public class CreateOfferController extends Sidebar implements Initializable, Run
         CreateOfferModel.setOfferInfo();
     }
 
+    // run-metoden lavet af Casper
     @Override
     public void run() {
         double rentesats = com.ferrari.finances.dk.bank.InterestRate.i().todaysRate();

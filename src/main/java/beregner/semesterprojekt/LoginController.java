@@ -34,7 +34,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
+// Jonas
 public class LoginController implements Initializable {
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
@@ -69,9 +69,9 @@ public class LoginController implements Initializable {
     public void setStage(Stage stage) {
         this.stage = stage;
     }
-    //Loader den kommende scene
-    private void loadFXML(String fxmlName, Stage stage, ActionEvent event) throws IOException {
 
+    private void loadFXML(String fxmlName, Stage stage, ActionEvent event) throws IOException {
+        //Loader den kommende scene
         FXMLLoader adminLoader = new FXMLLoader(getClass().getResource(fxmlName));
         Parent Root = adminLoader.load();
         Scene Scene = new Scene(Root);

@@ -9,14 +9,13 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+// Jonas
 public class ReviewModel {
     private ReviewModel database;
     private static Connection connection;
 
 
     public boolean Connect() throws SQLException {
-
         String connectionString =
                 "jdbc:sqlserver://localhost:1433;" +
                         "databaseName=FerrariDB;" +
@@ -24,14 +23,11 @@ public class ReviewModel {
                         "password=Fisk1234;" +
                         "encrypt=true;" +
                         "trustServerCertificate=true;";
-
         connection = null;
-
         try {
             System.out.println("Connecting to database...");
 
             connection = DriverManager.getConnection(connectionString);
-
             System.out.println("Connected to database");
 
             return true;
@@ -64,7 +60,7 @@ public class ReviewModel {
         }
 
     }
-    //Henter infomation fra databasen gennem SQL-sætning
+    //Henter infomation fra databasen gennem SQL-sætning, og indsætter data i textfields
     public static void getOfferInfo(ChoiceBox<Integer> choiceBox, TextField date, TextField interest, TextField credit,
                                TextField loan_total, TextField deposit, TextField duration,
                                     TextField carName, TextField carPrice, TextField phone, TextField custName) {
@@ -99,6 +95,7 @@ public class ReviewModel {
     }
 
     public static void acceptOffer(int offerID, int status_ID) throws SQLException {
+        //Sætter status_ID til godkendt
         String query = "UPDATE offer SET status_ID = ? WHERE offer_ID = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
@@ -110,6 +107,7 @@ public class ReviewModel {
         }
     }
     public static void denyOffer(int offerID, int status_ID) throws  SQLException {
+        //Sætter status_ID til afvist
         String query = "UPDATE offer SET status_ID = ? WHERE offer_ID = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);

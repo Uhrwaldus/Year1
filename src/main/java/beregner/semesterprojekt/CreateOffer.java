@@ -1,5 +1,6 @@
 package beregner.semesterprojekt;
 
+// Jonas
 public class CreateOffer {
 
     private static double interest;

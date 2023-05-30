@@ -14,13 +14,8 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-
-
+// Jonas
 public class Sidebar {
-    @FXML
-    private Button logudKnap, createKnap, offerKnap, inventoryKnap, statsknap, customerKnap;
-    private static Stage primaryStage;
-
 
     public void logudButton(ActionEvent event) throws IOException {
         URL url = new File("src/main/resources/beregner/semesterprojekt/Login.fxml").toURI().toURL();

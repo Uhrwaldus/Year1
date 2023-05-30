@@ -7,7 +7,7 @@ import javafx.scene.control.ChoiceBox;
 import java.sql.*;
 
 import static java.sql.DriverManager.getConnection;
-
+// Jonas
 public class CreateOfferModel {
     private static Connection connection;
     private static CreateOfferModel database;
@@ -93,6 +93,7 @@ public class CreateOfferModel {
     }
 
 public void getCustomer(ChoiceBox choiceBox) throws SQLException {
+        // Bruges til at indsætte kundenavn i choicebox
         ObservableList<String> customers = FXCollections.observableArrayList();
         try {
             Statement stmt = connection.createStatement();
@@ -112,6 +113,7 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
     }
 
     public static String[] getCustomerData(String name) {
+        //Indsætter kundedata baseret på det valgt kundenavn fra choiceboxen
         try {
             PreparedStatement SQLCustInfo = connection.prepareStatement("SELECT customer_ID, firstname, lastname, email, phonenumber," +
                     " address, city, postcode, CPR FROM customer WHERE firstname = ?");
@@ -139,6 +141,7 @@ public void getCustomer(ChoiceBox choiceBox) throws SQLException {
     }
 
     public static void setOfferInfo() {
+        // Indsætter det angivne infomation i database, og opretter dermed tilbuddet
         try {
             PreparedStatement SQLoffer = connection.prepareStatement("INSERT INTO offer ( interest, " +
                     "credit_rating, deposit, duration, salesman_ID, customer_ID, car_ID, loan_total, status_ID, date) VALUES " +

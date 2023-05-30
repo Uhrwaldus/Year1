@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+// Jonas
 public class LoginModelTest {
 
     private LoginModel loginModel;
@@ -20,6 +20,7 @@ public class LoginModelTest {
 
     @Test
     public void testConnect() {
+        //Tester hvorvidt forbindelsen er gyldig
         try {
             assertTrue(loginModel.Connect(), "Connection successful");
         } catch (SQLException e) {

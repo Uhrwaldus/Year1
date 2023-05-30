@@ -1,8 +1,7 @@
 package beregner.semesterprojekt;
 
-
 import java.sql.*;
-
+// Jonas
 public class LoginModel {
     private Connection connection;
     private LoginModel database;

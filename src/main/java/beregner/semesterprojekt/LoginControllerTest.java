@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+// Jonas
 public class LoginControllerTest extends ApplicationTest {
 
     private LoginController loginController;
@@ -42,15 +42,13 @@ public class LoginControllerTest extends ApplicationTest {
 
     @Test
     public void testLoginButtonClickedWithValidUser() throws IOException {
-        //Testen virker, men jeg har nada idé hvorfor den hvide boks kommer frem
+        //Simulerer en sælgerinteraktion ved login
         Platform.runLater(() -> {
             LoginController loginController = new LoginController();
 
-            // Set the stage property
             Stage primaryStage = new Stage();
             loginController.setStage(primaryStage);
 
-            // Load the FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
             Parent root;
             try {
@@ -58,7 +56,7 @@ public class LoginControllerTest extends ApplicationTest {
                 Scene scene = new Scene(root);
                 primaryStage.setScene(scene);
                 primaryStage.show();
-
+                // Søger efter det angivne field, og indsætter data
                 TextField usernameField = lookup("#usernameField").query();
                 PasswordField passwordField = lookup("#passwordField").query();
                 usernameField.setText("1");
@@ -75,12 +73,12 @@ public class LoginControllerTest extends ApplicationTest {
 
     @Test
     public void testLoginButtonClickedWithInvalidUser() {
-        //Virker
+
         TextField usernameField = lookup("#usernameField").query();
         PasswordField passwordField = lookup("#passwordField").query();
         Label errorLabel = lookup("#errorLabel").query();
 
-        // Enter invalid credentials
+        // Indsætter forkert info
         usernameField.setText("1");
         passwordField.setText("123123");
 
