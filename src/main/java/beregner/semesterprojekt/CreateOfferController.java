@@ -134,7 +134,7 @@ public class CreateOfferController extends Sidebar implements Initializable, Run
             creditAddition = 0.02;
         } else if (creditRatingText.equals("C")) {
             creditAddition = 0.03;
-        } else {
+        } else if (creditRatingText.equals("D")){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Kunden er i RKI");
             alert.setHeaderText("Stop finansieringen af kunden med det samme");
@@ -144,8 +144,18 @@ public class CreateOfferController extends Sidebar implements Initializable, Run
         // Tilføj procenter baseret på lånets længde
         double durationAddition = 0.0;
 
+        //Tilføj procenter baseret på udbetaling
+        double depositAddition = 0.0;
+        double carprice = Double.parseDouble(carPriceText);
+
         if (duration >= 36) {
             durationAddition = 0.01;
+        }
+
+        double halfprice = (carprice / 2);
+
+        if (Double.parseDouble(depositText) < halfprice) {
+            depositAddition = 0.01;
         }
 
         // Udregning af lån
@@ -153,7 +163,7 @@ public class CreateOfferController extends Sidebar implements Initializable, Run
         double price = Double.parseDouble(carPriceText);
 
         double total = (price - deposit) * ((com.ferrari.finances.dk.bank.InterestRate.i().todaysRate() / 100) +
-                (1 + creditAddition + durationAddition)) / duration;
+                (1 + creditAddition + durationAddition + depositAddition)) / duration;
 
         // Set værdier fra databasen
         interestText = interestText.replace(",", ".");

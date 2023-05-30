@@ -9,7 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationTest;
@@ -59,13 +59,11 @@ public class LoginControllerTest extends ApplicationTest {
                 primaryStage.setScene(scene);
                 primaryStage.show();
 
-                // Lookup the fields and enter valid credentials
                 TextField usernameField = lookup("#usernameField").query();
                 PasswordField passwordField = lookup("#passwordField").query();
                 usernameField.setText("1");
                 passwordField.setText("1234");
 
-                // Invoke the button click
                 Button loginButton = lookup("#loginButton").query();
                 clickOn(loginButton);
                 Scene currentScene = primaryStage.getScene();
