@@ -32,13 +32,6 @@ public class LoginModel {
         }
 
     }
-    public LoginModel() {
-        try {
-            Connect();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
     //Validerer brugeren baseret på deres inputs
     public int validateUser(String salesman_ID, String password) {
         //Sætter userType til -1, for at hjælpe fejlmelding

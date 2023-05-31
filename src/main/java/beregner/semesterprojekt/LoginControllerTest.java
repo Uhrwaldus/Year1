@@ -26,7 +26,7 @@ public class LoginControllerTest extends ApplicationTest {
     @BeforeAll
     public static void setup() throws TimeoutException {
         FxToolkit.registerPrimaryStage();
-        FxToolkit.setupApplication(LoginApplication.class);
+        FxToolkit.setupApplication(Main.class);
     }
 
     @Override

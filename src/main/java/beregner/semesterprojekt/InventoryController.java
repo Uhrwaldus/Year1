@@ -10,9 +10,8 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-
+// Casper
 public class InventoryController extends Sidebar implements Initializable {
-    private InventoryView app;
     private InventoryModel database;
 
 

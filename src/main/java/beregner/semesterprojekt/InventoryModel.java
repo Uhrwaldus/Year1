@@ -1,12 +1,11 @@
 package beregner.semesterprojekt;
 
-
 import java.sql.*;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
-
+// Casper
 public class InventoryModel {
     //Opretter Connection til Databasen med nedenstående metode.
     private Connection connection;

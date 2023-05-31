@@ -5,7 +5,7 @@ import java.sql.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
-
+// Alle
 public class HomeModel {
     private static Connection connection;
     public boolean Connect() throws SQLException {

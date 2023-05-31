@@ -4,9 +4,10 @@ import java.sql.Date;
 // Ulrikke
 
 public class Offers {
-    private int id, interest, loan, deposit, duration, customerID, saleID, carID;
+    private int id, loan, deposit, duration, customerID, saleID, carID;
     private Date date;
     private String rating;
+    private Double interest;
 
     public int getId() {
         return id;
@@ -16,7 +17,7 @@ public class Offers {
         return date;
     }
 
-    public int getInterest() {
+    public Double getInterest() {
         return interest;
     }
 
@@ -48,7 +49,7 @@ public class Offers {
         return carID;
     }
 
-    public Offers(int column1, Date column2, int column3, String column4, int column5, int column6, int column7, int column8, int column9, int column10){
+    public Offers(int column1, Date column2, Double column3, String column4, int column5, int column6, int column7, int column8, int column9, int column10){
         this.id = column1;
         this.date = column2;
         this.interest = column3;

@@ -25,26 +25,14 @@ public class Kunder {
     }
 
     public int getID(){return ID;}
-    public String getNavn(){
-        return Navn;
-    }
-    public String getEfternavn(){
-        return Efternavn;
-    }
-    public String getEmail(){
-        return Email;
-    }
-    public int getTlfnr(){
-        return Tlfnr;
-    }
-    public String getAddresse(){
-        return Addresse;
-    }
+    public String getNavn(){ return Navn; }
+    public String getEfternavn(){ return Efternavn; }
+    public String getEmail(){ return Email; }
+    public int getTlfnr(){ return Tlfnr; }
+    public String getAddresse(){ return Addresse; }
     public String getBy(){
         return By;
     }
-    public int getPostnr(){
-        return Postnr;
-    }
-    public String getCprnr(){return Cprnr;}
+    public int getPostnr(){ return Postnr; }
+    public String getCprnr(){ return Cprnr; }
 }

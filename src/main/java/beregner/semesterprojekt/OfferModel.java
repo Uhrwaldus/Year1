@@ -59,7 +59,7 @@ public class OfferModel {
                 Offers data = new Offers(
                         results.getInt("offer_ID"),
                         results.getDate("date"),
-                        results.getInt("interest"),
+                        results.getDouble("interest"),
                         results.getString("credit_rating"),
                         results.getInt("loan_total"),
                         results.getInt("deposit"),
