@@ -8,40 +8,68 @@ GO
 
 USE FerrariDB;
 
+--user_type tabellen--
+
+CREATE TABLE [salesman_type] (
+	[user_type_ID] int NOT NULL,
+	[type] nVarChar(10) NOT NULL
+
+	PRIMARY KEY (user_type_ID)
+	);
+
+INSERT INTO	[salesman_type] VALUES ('1', 'Sælger')
+INSERT INTO	[salesman_type] VALUES ('2', 'Salgschef')
+
 --sælgertabellen--
 
 CREATE TABLE [salesman] (
 	[salesman_ID] int IDENTITY(1, 1),
-	[firstname] nVarChar(25),
-	[lastname] nVarChar(25),
-	[reviewCode] int
+	[firstname] nVarChar(25) NOT NULL,
+	[lastname] nVarChar(25) NOT NULL,
+	[password] int NOT NULL,
+	[number_of_loans_given] INT DEFAULT 0,
+    [number_of_cars_sold] INT DEFAULT 0,
+	[user_type_ID] int FOREIGN KEY REFERENCES [salesman_type](user_type_ID)
 
 	PRIMARY KEY (salesman_ID)
 	);
 
+INSERT INTO [salesman] VALUES ('Hanne' , 'Bjerregaard', '1234', '1', '3', '1')
+INSERT INTO [salesman] VALUES ('Casper' , 'Taberunge', '69420', '1', '7', '1')
+INSERT INTO [salesman] VALUES ('Sa' , 'SA', '12345', '2', '2', '2')
+
+
 --kundetabellen--
 
 CREATE TABLE [customer] (
-	[customer_ID] int IDENTITY,
-	[firstname] nVarChar(25),
-	[lastname] nVarChar(25),
-	[email] nVarChar(50),
-	[phonenumber] int,
-	[adress] nVarChar(50),
-	[city] nVarChar(25),
-	[postcode] int,
-	[CPR] nVarChar(10)
+	[customer_ID] int IDENTITY(1, 1),
+	[firstname] nVarChar(25) NOT NULL,
+	[lastname] nVarChar(25) NOT NULL,
+	[email] nVarChar(50) NOT NULL,
+	[phonenumber] int NOT NULL,
+	[address] nVarChar(50) NOT NULL,
+	[city] nVarChar(25) NOT NULL,
+	[postcode] int NOT NULL,
+	[CPR] nVarChar(10) NOT NULL
 
 	PRIMARY KEY (customer_ID)
 	);
 
+INSERT INTO [customer] VALUES ('Jonas', 'Pedersen', 'jonpe01@eamv.dk', '30622907',
+'Sønderparken 26', 'Holstebro', '7500', '1234567890')
+INSERT INTO [customer] VALUES ('Karsten', 'Hansen', 'karsten@outlook.dk', '16570347',
+'Mullersvej 9', 'Herning', '7400', '1283455311')
+INSERT INTO [customer] VALUES ('Freja', 'Nørgaard', 'norgaard@gmail.com', '96439782',
+'Nordvej 62', 'Ringkøbing', '6950','1109642872')
+INSERT INTO [customer] VALUES ('Thomas', 'Agersbo', 'thommy@hotmail.dk', '83748377',
+'Skovvej 49', 'Holstebro', '7500', '1016723313')
 
 --biltabellen--
 
 CREATE TABLE [car] (
-	[car_ID] int IDENTITY,
-	[car_name] nVarChar(25),
-	[car_price] int,
+	[car_ID] int IDENTITY (1, 1),
+	[car_name] nVarChar(25) NOT NULL,
+	[car_price] int NOT NULL,
 	[stock] int
 
 	PRIMARY KEY (car_ID)
@@ -49,26 +77,68 @@ CREATE TABLE [car] (
 
 INSERT INTO [car] VALUES ('Ferrari F40', '3500000', '3')
 INSERT INTO [car] VALUES ('Ferrari Spyder', '2800000', '7')
+INSERT INTO [car] VALUES ('Ferrari Roma' , '2400000', '2')
+INSERT INTO [car] VALUES ('Ferrari SF90' , '1800000', '1')
+INSERT INTO [car] VALUES ('Ferrari Portofino' , '3800000', '4')
 
+--statustabellen--
+CREATE TABLE [offer_status] (
+	[status_ID] int,
+	[type] nVarChar(20)
+
+	PRIMARY KEY (status_ID)
+	);
+
+INSERT INTO [offer_status] VALUES ('1', 'Afventer')
+INSERT INTO [offer_status] VALUES ('2', 'Godkendt')
+INSERT INTO [offer_status] VALUES ('3', 'Afvist')
 
 --tilbudstabellen--
 CREATE TABLE [offer] (
 	[offer_ID] int IDENTITY(1, 1),
-	[date] datetime,
-	[interest] int,
-	[credit_rating] varchar,
-	[loan_total] int,
+	[date] date NOT NULL,
+	[interest] FLOAT NOT NULL,
+	[credit_rating] varchar NOT NULL,
+	[loan_total] FLOAT NOT NULL,
 	[deposit] int,
-	[duration] int,
+	[duration] int NOT NULL,
 	[customer_ID] int FOREIGN KEY REFERENCES [customer](customer_ID),
 	[salesman_ID]  int FOREIGN KEY REFERENCES [salesman](salesman_ID),
-	[car_ID] int FOREIGN KEY REFERENCES	[car](car_ID)
+	[car_ID] int FOREIGN KEY REFERENCES	[car](car_ID),
+	[status_ID] int FOREIGN KEY REFERENCES [offer_status](status_ID)
 
 	PRIMARY KEY	(offer_ID)
 	);
+
+INSERT INTO [offer] ([date], [interest], [credit_rating], [loan_total], [deposit], [duration], [customer_ID], [salesman_ID], [car_ID], [status_ID])
+VALUES ('2023-05-16', '5.23', 'B', '2500000', '750000', '24', '1', '1', '1', '1');
 
 --bridging table mellem offer og car--
 CREATE TABLE [car_offer] (
 	[offer_ID] int FOREIGN KEY REFERENCES [offer](offer_ID),
 	[car_ID] int FOREIGN KEY REFERENCES [car](car_ID)
 	);
+
+-- loan table --
+
+CREATE TABLE [loan] (
+    [loan_ID] INT IDENTITY,
+    [amount] INT,
+    [salesman_ID] INT FOREIGN KEY REFERENCES [salesman]([salesman_ID]),
+    [customer_ID] INT FOREIGN KEY REFERENCES [customer]([customer_ID]),
+    [offer_ID] INT FOREIGN KEY REFERENCES [offer]([offer_ID]),
+    [date] DATE,
+    [status] NVARCHAR(10),
+
+    PRIMARY KEY ([loan_ID])
+);
+
+-- car_sold table --
+
+CREATE TABLE [car_sold] (
+    [car_sold_ID] INT IDENTITY,
+    [offer_ID] INT FOREIGN KEY REFERENCES [offer]([offer_ID]),
+    [car_ID] INT FOREIGN KEY REFERENCES [car]([car_ID]),
+
+    PRIMARY KEY ([car_sold_ID])
+);

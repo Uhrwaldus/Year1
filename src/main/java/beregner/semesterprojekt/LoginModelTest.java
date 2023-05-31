@@ -18,7 +18,7 @@ public class LoginModelTest {
         loginModel = new LoginModel();
     }
 
-    @Test
+    @org.junit.Test
     public void testConnect() {
         //Tester hvorvidt forbindelsen er gyldig
         try {

@@ -13,9 +13,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
+// Ulrikke
 public class HomeController extends Sidebar implements Initializable {
-    private HomeModel database;
     double udbetaling, indkomst, pris, udregning;
     double måneder;
 
@@ -37,7 +36,6 @@ public class HomeController extends Sidebar implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        this.database = database;
 
         //henter bilerne til choicebox
         try {
@@ -46,7 +44,16 @@ public class HomeController extends Sidebar implements Initializable {
             throw new RuntimeException(e);
         }
 
+        bilInput.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+            try {
+                double price = HomeModel.getPrice((String) newValue);
+                prisInput.setText(String.valueOf(price));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
+
     public void check(javafx.event.ActionEvent actionEvent) {
         //læser værdierne fra textfelterne og laver udregning
         udbetaling = Double.parseDouble(udbetalingInput.getText());
@@ -54,11 +61,11 @@ public class HomeController extends Sidebar implements Initializable {
         pris = Double.parseDouble(prisInput.getText());
         måneder = periode.getValue();
 
+        // Jonas
         udregning = (pris - udbetaling) / måneder * (InterestRate.i().todaysRate() / 100 + 1);
         resultat.setText(String.format("%.2f", udregning) + "kr.");
-
-        System.out.println( InterestRate.i().todaysRate());
     }
+    // Jonas
     public void logud(ActionEvent event) throws IOException { logudButton(event); }
     public void createKnap(ActionEvent event) throws IOException { createButton(event); }
     public void offerKnap(ActionEvent event) throws IOException { offerButton(event); }

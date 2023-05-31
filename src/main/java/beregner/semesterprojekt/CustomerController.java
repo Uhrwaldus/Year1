@@ -50,7 +50,6 @@ public class CustomerController extends Sidebar implements Initializable {
     private TextField postnrField;
     @FXML
     private TextField cprnrField;
-    private Kunder kunde;
     private Opret opret;
 
     CustomerModel database = new CustomerModel();
@@ -115,6 +114,8 @@ public class CustomerController extends Sidebar implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
+    // Jonas
     public void logud(ActionEvent event) throws IOException { logudButton(event); }
     public void createKnap(ActionEvent event) throws IOException { createButton(event); }
     public void offerKnap(ActionEvent event) throws IOException { offerButton(event); }
