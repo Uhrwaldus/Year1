@@ -6,7 +6,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.sql.*;
-// Ulrikke og Casper
+// Casper
 
 public class InventoryController extends Sidebar {
     private InventoryModel inventoryModel;

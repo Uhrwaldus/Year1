@@ -35,10 +35,6 @@ public class InventoryModel {
         }
     }
 
-    public Connection getConnection() {
-        return connection;
-    }
-
     // Ulrikke
     public CarInfo getCarInfo(String carName){
         CarInfo carInfo = null;
