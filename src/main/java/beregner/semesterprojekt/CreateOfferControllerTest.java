@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.testng.annotations.Test;
 import org.testfx.framework.junit5.ApplicationTest;
-
 import static org.testng.AssertJUnit.assertEquals;
 
 
@@ -72,7 +71,6 @@ public class CreateOfferControllerTest extends ApplicationTest {
             assertEquals("1", controller.kundeIDinput.getText());
             assertEquals("1", controller.carIDinput.getText());
             assertEquals("62101,62", controller.result.getText());
-
         });
     }
 }

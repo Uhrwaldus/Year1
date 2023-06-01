@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Demo extends Application {
+public class InventoryApplication extends Application {
 
 
 

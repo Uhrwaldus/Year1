@@ -4,15 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import com.ferrari.finances.dk.bank.InterestRate;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.io.IOException;
 import java.net.URL;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 // Ulrikke
+
 public class CustomerController extends Sidebar implements Initializable {
     @FXML
     private TableView<Kunder> kundeTabel;

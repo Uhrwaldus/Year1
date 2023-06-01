@@ -3,7 +3,7 @@ package beregner.semesterprojekt;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+// Casper
 public class StatModel {
     private Connection connection;
 

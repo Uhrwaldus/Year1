@@ -6,9 +6,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 // Jonas
 public class ReviewModel {
     private ReviewModel database;

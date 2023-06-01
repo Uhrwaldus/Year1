@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
@@ -36,6 +38,9 @@ public class OfferController extends Sidebar implements Initializable {
     TableColumn<Offers, Integer> column9;
     @FXML
     TableColumn<Offers, Integer> column10;
+    @FXML
+    private Text errorText;
+
     OfferModel database = new OfferModel();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -72,6 +77,7 @@ public class OfferController extends Sidebar implements Initializable {
         // hent den valgte række fra tabellen
         Offers selectedOffer = offerTabel.getSelectionModel().getSelectedItem();
         if (selectedOffer == null) {
+            errorText.setText("Vælg et tilbud at eksportere");
             return;
         }
 

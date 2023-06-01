@@ -2,11 +2,7 @@ package beregner.semesterprojekt;
 
 
 import java.sql.*;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.ChoiceBox;
-
+// Casper
 public class InventoryModel {
     //Opretter Connection til Databasen med nedenstående metode.
     private Connection connection;
@@ -39,11 +35,28 @@ public class InventoryModel {
         }
     }
 
-
-
     public Connection getConnection() {
         return connection;
     }
 
-
+    // Ulrikke
+    public CarInfo getCarInfo(String carName){
+        CarInfo carInfo = null;
+        String query = "SELECT * FROM car WHERE car_name = ?";
+        try {
+            Connect();
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, carName);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                String model = rs.getString("car_name");
+                int price = rs.getInt("car_price");
+                int stock = rs.getInt("stock");
+                carInfo = new CarInfo(model, price, stock);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return carInfo;
+    }
 }
