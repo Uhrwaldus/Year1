@@ -6,15 +6,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+// Alle
+public class Main extends Application {
 
-public class CustomerApplication extends Application {
-        @Override
+    @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(CustomerApplication.class.getResource("Customer.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
-        stage.setTitle("Home");
+        stage.setTitle("Ferrari");
         stage.setScene(scene);
         stage.show();
+    }
+    public static void main(String[] args) {
+        launch(args);
     }
 }

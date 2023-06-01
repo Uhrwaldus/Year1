@@ -1,5 +1,6 @@
 package beregner.semesterprojekt;
 
+// Ulrikke
 public class Opret {
     private static String Navn;
     private static String Efternavn;

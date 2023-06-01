@@ -23,7 +23,7 @@ public class OfferController extends Sidebar implements Initializable {
     @FXML
     TableColumn<Offers, Date> column2;
     @FXML
-    TableColumn<Offers, Integer> column3;
+    TableColumn<Offers, Double> column3;
     @FXML
     TableColumn<Offers, String> column4;
     @FXML
@@ -83,19 +83,24 @@ public class OfferController extends Sidebar implements Initializable {
 
         StringBuilder csvData = new StringBuilder();
 
-        csvData.append("ID,Dato,Rente,Kredit_vurdering,Lån,Udbetaling,Periode,KundeID,SælgerID,BilID\n");
+        csvData.append("ID;Dato;Rente;Kredit_vurdering;Laan;Udbetaling;Periode;KundeID;SaelgerID;BilID\n");
 
 
-        csvData.append(selectedOffer.getId()).append(",")
-                .append(selectedOffer.getDate()).append(",")
-                .append(selectedOffer.getInterest()).append(",")
-                .append(selectedOffer.getRating()).append(",")
-                .append(selectedOffer.getLoan()).append(",")
-                .append(selectedOffer.getDeposit()).append(",")
-                .append(selectedOffer.getDuration()).append(",")
-                .append(selectedOffer.getCustomerID()).append(",")
-                .append(selectedOffer.getSaleID()).append(",")
-                .append(selectedOffer.getCarID()).append("\n");
+        csvData.append(selectedOffer.getId()).append(";")
+                .append(selectedOffer.getDate()).append(";")
+                .append(selectedOffer.getInterest()).append(";")
+                .append(selectedOffer.getRating()).append(";")
+                .append(selectedOffer.getLoan()).append(";")
+                .append(selectedOffer.getDeposit()).append(";")
+                .append(selectedOffer.getDuration()).append(";")
+                .append(selectedOffer.getCustomerID()).append(";")
+                .append(selectedOffer.getSaleID()).append(";")
+                .append(selectedOffer.getCarID()).append("\n")
+                .append("Din maanedlige udbetaling er ")
+                .append(selectedOffer.getLoan())
+                .append("kr, over ")
+                .append(selectedOffer.getDuration())
+                .append(" maaneder");
 
         try (FileWriter fileWriter = new FileWriter("Eksporteret_tilbud.csv")) {
             fileWriter.append(csvData);

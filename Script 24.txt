@@ -36,7 +36,7 @@ CREATE TABLE [salesman] (
 
 INSERT INTO [salesman] VALUES ('Hanne' , 'Bjerregaard', '1234', '1', '3', '1')
 INSERT INTO [salesman] VALUES ('Casper' , 'Taberunge', '69420', '1', '7', '1')
-INSERT INTO [salesman] VALUES ('Sa' , 'SA', '12345', '2', '2', '2')
+INSERT INTO [salesman] VALUES ('Jonas' , 'Taberunge1', '12345', '2', '2', '2')
 
 
 --kundetabellen--
@@ -63,6 +63,7 @@ INSERT INTO [customer] VALUES ('Freja', 'Nørgaard', 'norgaard@gmail.com', '9643
 'Nordvej 62', 'Ringkøbing', '6950','1109642872')
 INSERT INTO [customer] VALUES ('Thomas', 'Agersbo', 'thommy@hotmail.dk', '83748377',
 'Skovvej 49', 'Holstebro', '7500', '1016723313')
+
 
 --biltabellen--
 
@@ -111,7 +112,7 @@ CREATE TABLE [offer] (
 	);
 
 INSERT INTO [offer] ([date], [interest], [credit_rating], [loan_total], [deposit], [duration], [customer_ID], [salesman_ID], [car_ID], [status_ID])
-VALUES ('2023-05-16', '5.23', 'B', '2500000', '750000', '24', '1', '1', '1', '1');
+VALUES ('2023-05-16', '5.23', 'B', '126726.05', '750000', '24', '1', '1', '1', '1');
 
 --bridging table mellem offer og car--
 CREATE TABLE [car_offer] (
